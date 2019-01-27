@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{20E39EE4-5ED6-4510-9CF7-EDB51B94993C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PratiCanto</RootNamespace>
+    <AssemblyName>PratiCanto</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Douglas\Desktop\PratiCantoPublish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>PratiCanto-01shrink.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5829B470241AAB7165E4EC1C09F356C051228F4E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ClassifTreinoVoz_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cloo">
+      <HintPath>..\Cloo.dll</HintPath>
+    </Reference>
+    <Reference Include="DirectShowLib-2005">
+      <HintPath>..\DirectShowLib-2005.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zlib">
+      <HintPath>..\Ionic.Zlib.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenCLTemplate">
+      <HintPath>..\OpenCLTemplate.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>..\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="PSAMControlLibrary, Version=2.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\PSAMControlLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AUDEDTComposer\frmComposer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AUDEDTComposer\frmComposer.Designer.cs">
+      <DependentUpon>frmComposer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChooseModV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChooseModV2.designer.cs">
+      <DependentUpon>frmChooseModV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoiceCMD\frmVoiceCommand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoiceCMD\frmVoiceCommand.Designer.cs">
+      <DependentUpon>frmVoiceCommand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\frmInsertKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\frmInsertKey.Designer.cs">
+      <DependentUpon>frmInsertKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmInspector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmInspector.Designer.cs">
+      <DependentUpon>frmInspector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\LayoutFuncs.cs" />
+    <Compile Include="Misc\frmSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\frmSplash.Designer.cs">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmIntonation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmIntonation.Designer.cs">
+      <DependentUpon>frmIntonation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMDIParent.Designer.cs">
+      <DependentUpon>frmMDIParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\BuildVisualization.cs" />
+    <Compile Include="Math\SelfSimilarity.cs" />
+    <Compile Include="Misc\frmTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\frmTemplate.Designer.cs">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmEloquence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmEloquence.designer.cs">
+      <DependentUpon>frmEloquence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmSelfListen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmSelfListen.Designer.cs">
+      <DependentUpon>frmSelfListen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmSpeechRecognizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPPATHSelfListen\frmSpeechRecognizer.designer.cs">
+      <DependentUpon>frmSpeechRecognizer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SPPATHSustainedVowel\frmSustVowel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SPPATHSustainedVowel\frmSustVowel.Designer.cs">
+      <DependentUpon>frmSustVowel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Video\Capture.cs" />
+    <Compile Include="EditMelody\frmEditWaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMelody\frmEditWaveForm.Designer.cs">
+      <DependentUpon>frmEditWaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMelody\frmImportMidi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMelody\frmImportMidi.Designer.cs">
+      <DependentUpon>frmImportMidi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\PhonemeRecognition.cs" />
+    <Compile Include="Misc\AboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Misc\AboutBox.Designer.cs">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\AudioIdentifRecog.cs" />
+    <Compile Include="Math\CLKmeans.cs" />
+    <Compile Include="Math\FFTFreqFilter.cs" />
+    <Compile Include="AudioComparer\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioComparer\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AudioComparer\frmAnalyzePart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioComparer\frmAnalyzePart.Designer.cs">
+      <DependentUpon>frmAnalyzePart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\LinearPredictor.cs" />
+    <Compile Include="AudioComparer\SampleAudioGL.cs" />
+    <Compile Include="PratiCantoForms.cs" />
+    <Compile Include="Video\ImportVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Video\ImportVideo.Designer.cs">
+      <DependentUpon>ImportVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Video\ImportVideoClass.cs" />
+    <Compile Include="VoiceTraining\frmEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoiceTraining\frmEdit.Designer.cs">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoiceTraining\frmTraining.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoiceTraining\frmTraining.Designer.cs">
+      <DependentUpon>frmTraining.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Math\FourierTransform.cs" />
+    <Compile Include="AudioComparer\frmClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AudioComparer\frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChooseActivity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChooseActivity.Designer.cs">
+      <DependentUpon>frmChooseActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditMelody\frmEditMelody.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditMelody\frmEditMelody.Designer.cs">
+      <DependentUpon>frmEditMelody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdentifyVoice\frmIdentifyVoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdentifyVoice\frmIdentifyVoice.Designer.cs">
+      <DependentUpon>frmIdentifyVoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VoiceTraining\GuidedSinging.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AudioComparer\SampleAudio.cs" />
+    <Compile Include="AudioComparer\SoftwareKey.cs" />
+    <Compile Include="Misc\SelfUpdate.cs" />
+    <Compile Include="VoiceTraining\SoundSynthesis.cs" />
+    <Compile Include="IdentifyVoice\VoiceClassification.cs" />
+    <Compile Include="AudioComparer\XMLFuncs.cs" />
+    <Compile Include="VoiceTraining\SyntheticVoice.cs" />
+    <EmbeddedResource Include="AUDEDTComposer\frmComposer.pt.resx">
+      <DependentUpon>frmComposer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AUDEDTComposer\frmComposer.resx">
+      <DependentUpon>frmComposer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\Form1.es.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\Form1.pt-AO.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\frmAnalyzePart.es.resx">
+      <DependentUpon>frmAnalyzePart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\frmClient.es.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmEditWaveForm.es.resx">
+      <DependentUpon>frmEditWaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmImportMidi.es.resx">
+      <DependentUpon>frmImportMidi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmImportMidi.pt.resx">
+      <DependentUpon>frmImportMidi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmImportMidi.resx">
+      <DependentUpon>frmImportMidi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChooseActivity.es.resx">
+      <DependentUpon>frmChooseActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmEditMelody.es.resx">
+      <DependentUpon>frmEditMelody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmEditWaveForm.pt.resx">
+      <DependentUpon>frmEditWaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmEditWaveForm.resx">
+      <DependentUpon>frmEditWaveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChooseModV2.es.resx">
+      <DependentUpon>frmChooseModV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChooseModV2.pt.resx">
+      <DependentUpon>frmChooseModV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChooseModV2.resx">
+      <DependentUpon>frmChooseModV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceCMD\frmVoiceCommand.resx">
+      <DependentUpon>frmVoiceCommand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\frmInsertKey.pt.resx">
+      <DependentUpon>frmInsertKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\frmInsertKey.resx">
+      <DependentUpon>frmInsertKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\frmSplash.resx">
+      <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmInspector.pt.resx">
+      <DependentUpon>frmInspector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmInspector.resx">
+      <DependentUpon>frmInspector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmIntonation.pt.resx">
+      <DependentUpon>frmIntonation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmIntonation.resx">
+      <DependentUpon>frmIntonation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMDIParent.resx">
+      <DependentUpon>frmMDIParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentifyVoice\frmIdentifyVoice.es.resx">
+      <DependentUpon>frmIdentifyVoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\AboutBox.es.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\AboutBox.pt.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\AboutBox.resx">
+      <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\Form1.pt.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\frmAnalyzePart.pt.resx">
+      <DependentUpon>frmAnalyzePart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\frmAnalyzePart.resx">
+      <DependentUpon>frmAnalyzePart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Misc\frmTemplate.resx">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmEloquence.resx">
+      <DependentUpon>frmEloquence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmSelfListen.resx">
+      <DependentUpon>frmSelfListen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmSpeechRecognizer.pt.resx">
+      <DependentUpon>frmSpeechRecognizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSelfListen\frmSpeechRecognizer.resx">
+      <DependentUpon>frmSpeechRecognizer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSustainedVowel\frmSustVowel.pt.resx">
+      <DependentUpon>frmSustVowel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SPPATHSustainedVowel\frmSustVowel.resx">
+      <DependentUpon>frmSustVowel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Video\ImportVideo.resx">
+      <DependentUpon>ImportVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceTraining\frmEdit.es.resx">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceTraining\frmEdit.pt.resx">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceTraining\frmEdit.resx">
+      <DependentUpon>frmEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceTraining\frmTraining.es.resx">
+      <DependentUpon>frmTraining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceTraining\frmTraining.pt.resx">
+      <DependentUpon>frmTraining.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VoiceTraining\frmTraining.resx">
+      <DependentUpon>frmTraining.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\frmClient.pt.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AudioComparer\frmClient.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChooseActivity.pt.resx">
+      <DependentUpon>frmChooseActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChooseActivity.resx">
+      <DependentUpon>frmChooseActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmEditMelody.pt.resx">
+      <DependentUpon>frmEditMelody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditMelody\frmEditMelody.resx">
+      <DependentUpon>frmEditMelody.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentifyVoice\frmIdentifyVoice.pt.resx">
+      <DependentUpon>frmIdentifyVoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdentifyVoice\frmIdentifyVoice.resx">
+      <DependentUpon>frmIdentifyVoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="ClassifTreinoVoz_TemporaryKey.pfx" />
+    <None Include="Misc\free singing.mld" />
+    <None Include="Misc\Polihymnia.ttf" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Misc\sustain.mld" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="1463268151_microphone.ico" />
+    <Content Include="Misc\licenseDirectShowLibV2-1.txt" />
+    <Content Include="Misc\Font licence.txt" />
+    <Content Include="Misc\Fugue icons licence.txt" />
+    <Content Include="Misc\licence.txt" />
+    <Content Include="PratiCanto-01shrink.ico" />
+    <Content Include="PratiCantoV2.ico" />
+    <None Include="Resources\saveRaw.png" />
+    <None Include="Resources\Openfolder_orange.png" />
+    <None Include="Resources\arrow.png" />
+    <None Include="Resources\MagLens.png" />
+    <None Include="Resources\EditAudio.png" />
+    <None Include="Resources\if_mic-icon_67160.png" />
+    <None Include="Resources\logowith bgSuave2.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\play.png" />
+    <None Include="Resources\WaveForm.png" />
+    <None Include="Resources\logowith bgSuave.png" />
+    <None Include="Resources\logowith bg.png" />
+    <None Include="Resources\logowith bg - suave.png" />
+    <None Include="Resources\DefaultClient.png" />
+    <None Include="Resources\startTest.png" />
+    <None Include="Resources\logowith bg - Copia.png" />
+    <None Include="Resources\logo2shrink.png" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
