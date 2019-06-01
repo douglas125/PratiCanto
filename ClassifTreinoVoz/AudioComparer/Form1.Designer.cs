@@ -166,6 +166,8 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
+            this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -179,6 +181,7 @@
             // 
             // menuMain
             // 
+            this.menuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem,
@@ -705,6 +708,8 @@
             // autolearnToolStripMenuItem
             // 
             this.autolearnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadModelToolStripMenuItem,
+            this.toolStripMenuItem19,
             this.learnFromThisFileToolStripMenuItem,
             this.learnFromFolderToolStripMenuItem,
             this.classifySelectionToolStripMenuItem,
@@ -758,6 +763,7 @@
             // 
             // toolMain
             // 
+            this.toolMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnClient,
             this.toolStripSeparator3,
@@ -1120,6 +1126,17 @@
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
             // 
+            // loadModelToolStripMenuItem
+            // 
+            this.loadModelToolStripMenuItem.Name = "loadModelToolStripMenuItem";
+            resources.ApplyResources(this.loadModelToolStripMenuItem, "loadModelToolStripMenuItem");
+            this.loadModelToolStripMenuItem.Click += new System.EventHandler(this.loadModelToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            resources.ApplyResources(this.toolStripMenuItem19, "toolStripMenuItem19");
+            // 
             // frmAudioComparer
             // 
             resources.ApplyResources(this, "$this");
@@ -1289,6 +1306,8 @@
         private System.Windows.Forms.ToolStripMenuItem medianToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem convertWAVToMP3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertAtStartOfSelectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadModelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem19;
     }
 }
 
