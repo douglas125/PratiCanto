@@ -1380,7 +1380,6 @@ namespace AudioComparer
             curSample.Annotations.AddRange(phoneticSearchAnn);
             picControlBar.Invalidate();
         }
-
         #endregion
 
 
