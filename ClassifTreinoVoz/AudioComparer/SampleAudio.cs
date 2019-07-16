@@ -78,6 +78,28 @@ namespace AudioComparer
         {
             return x + (y - x) * t;
         }
+
+        /// <summary>Resamples audio to a new sampling rate</summary>
+        /// <param name="t0">Initial time</param>
+        /// <param name="tf">Final time</param>
+        /// <param name="newSamplingRate">Desired sampling rate</param>
+        /// <returns></returns>
+        public List<double> Resample(double t0, double tf, double newSamplingRate)
+        {
+            List<double> resampledAudio = new List<double>();
+
+            double deltaT = 1.0 / newSamplingRate;
+            double cur_t = t0;
+
+            while (cur_t <= tf)
+            {
+                double cur_i = this.GetIntensAtTime(cur_t);
+                resampledAudio.Add(cur_i);
+                cur_t += deltaT;
+            }
+
+            return resampledAudio;
+        }
         #endregion
 
         #region Constructors

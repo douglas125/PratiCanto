@@ -1428,24 +1428,40 @@ namespace AudioComparer
 
 
         #region Deep learning models
+        TFGraph graph = null;
+        string[] model_classes = null;
+
         private void loadModelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string modelFile = Application.StartupPath + "\\DLModels\\attRNN.pb";
-            var graph = new TFGraph();
+            graph = new TFGraph();
             // Load the serialized GraphDef from a file.
-            var model = File.ReadAllBytes(modelFile);
+            byte[] model = File.ReadAllBytes(modelFile);
+            model_classes = File.ReadAllText(modelFile + ".classes").Split(new string[] { "\r\n", "\n" }, 
+                StringSplitOptions.RemoveEmptyEntries);
 
             graph.Import(model, "");
+        }
 
+        private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // no graph
+            if (graph == null) return;
+            // no selection or too short
+            if (saGL.pfSelX-saGL.p0SelX < 0.7) return;
+
+            //resample to 16kHz
+            List<double> dblx = curSample.Resample(saGL.p0SelX, saGL.pfSelX, 16000);
+            float[,] x = new float[1, dblx.Count];
+
+            for (int k = 0; k < dblx.Count; k++) x[0, k] = (float)dblx[k];
+
+            string sel_class = "?";
+            float conf = 0;
             using (var session = new TFSession(graph))
             {
-                float[,] x = new float[1, 16000];
-
                 TFTensor tensor = new TFTensor(x);
-
                 var runner = session.GetRunner();
-
-                //TFOperation temp = graph["input_1"];
 
                 runner.AddInput(graph["input"][0], tensor).Fetch(graph["output/Softmax"][0]);
                 var output = runner.Run();
@@ -1453,9 +1469,27 @@ namespace AudioComparer
                 var result = output[0];
                 float[,] val = (float[,])result.GetValue(jagged: false);
 
-                float ss = 0;
-                for (int k = 0; k < val.GetLength(1); k++) ss += val[0, k];
+                float maxval = 0;
+                int maxIdx = -1;
+                for (int k = 0; k < val.GetLength(1); k++)
+                {
+                    if (val[0, k] > maxval)
+                    {
+                        maxIdx = k;
+                        maxval = val[0, k];
+                    }
+                }
+
+                if (maxIdx >= 0 && maxIdx < model_classes.Length)
+                {
+                    sel_class = model_classes[maxIdx];
+                    conf = maxval;
+                }
             }
+
+            //add annotation
+            txtAnnotation.Text = sel_class + ": " + Math.Round(conf, 2).ToString();
+            btnAnnotate_Click(sender, e);
         }
 
         private void button1_Click(object sender, EventArgs e)
