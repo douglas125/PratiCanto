@@ -1433,31 +1433,39 @@ namespace AudioComparer
 
         private void loadModelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string modelFile = Application.StartupPath + "\\DLModels\\attRNN.pb";
-            graph = new TFGraph();
-            // Load the serialized GraphDef from a file.
-            byte[] model = File.ReadAllBytes(modelFile);
-            model_classes = File.ReadAllText(modelFile + ".classes").Split(new string[] { "\r\n", "\n" }, 
-                StringSplitOptions.RemoveEmptyEntries);
+            try
+            {
+                string modelFile = Application.StartupPath + "\\DLModels\\attRNN.pb";
+                graph = new TFGraph();
+                // Load the serialized GraphDef from a file.
+                byte[] model = File.ReadAllBytes(modelFile);
+                model_classes = File.ReadAllText(modelFile + ".classes").Split(new string[] { "\r\n", "\n" },
+                    StringSplitOptions.RemoveEmptyEntries);
 
-            graph.Import(model, "");
+                graph.Import(model, "");
+
+                spotkeywordsInAudioToolStripMenuItem.Enabled = true;
+                spotKeywordInSelectionToolStripMenuItem.Enabled = true;
+            }
+            catch
+            {
+                //silently fail, user does not need to know this is happening
+            }
         }
 
-        private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>Runs the tensrflow model in an audio sample.
+        /// Returns selected class.</summary>
+        /// <param name="audiosample">Sample to use</param>
+        /// <param name="confidence">Output confidence</param>
+        /// <returns></returns>
+        private int RunModel(List<double> audiosample, out float confidence)
         {
-            // no graph
-            if (graph == null) return;
-            // no selection or too short
-            if (saGL.pfSelX-saGL.p0SelX < 0.7) return;
+            float[,] x = new float[1, audiosample.Count];
 
-            //resample to 16kHz
-            List<double> dblx = curSample.Resample(saGL.p0SelX, saGL.pfSelX, 16000);
-            float[,] x = new float[1, dblx.Count];
+            for (int k = 0; k < audiosample.Count; k++) x[0, k] = (float)audiosample[k];
 
-            for (int k = 0; k < dblx.Count; k++) x[0, k] = (float)dblx[k];
-
-            string sel_class = "?";
-            float conf = 0;
+            confidence = 0;
+            int maxIdx = -1;
             using (var session = new TFSession(graph))
             {
                 TFTensor tensor = new TFTensor(x);
@@ -1469,118 +1477,114 @@ namespace AudioComparer
                 var result = output[0];
                 float[,] val = (float[,])result.GetValue(jagged: false);
 
-                float maxval = 0;
-                int maxIdx = -1;
                 for (int k = 0; k < val.GetLength(1); k++)
                 {
-                    if (val[0, k] > maxval)
+                    if (val[0, k] > confidence)
                     {
                         maxIdx = k;
-                        maxval = val[0, k];
+                        confidence = val[0, k];
                     }
                 }
-
-                if (maxIdx >= 0 && maxIdx < model_classes.Length)
-                {
-                    sel_class = model_classes[maxIdx];
-                    conf = maxval;
-                }
             }
-
-            //add annotation
-            txtAnnotation.Text = sel_class + ": " + Math.Round(conf, 2).ToString();
-            btnAnnotate_Click(sender, e);
+            return maxIdx;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string modelFile = "tensorflow_inception_graph.pb";
-            string labelsFile = "imagenet_comp_graph_label_strings.txt";
+            // no graph
+            if (graph == null) return;
+            // no selection or too short
+            if (saGL.pfSelX-saGL.p0SelX < 0.7) return;
 
-            // Construct an in-memory graph from the serialized form.
-            var graph = new TFGraph();
-            // Load the serialized GraphDef from a file.
-            var model = File.ReadAllBytes(modelFile);
+            //resample to 16kHz
+            List<double> dblx = curSample.Resample(saGL.p0SelX, saGL.pfSelX, 16000);
 
-            graph.Import(model, "");
-
-            using (var session = new TFSession(graph))
+            int sel_class_id = RunModel(dblx, out float conf);
+            if (sel_class_id >= 0)
             {
-                var labels = File.ReadAllLines(labelsFile);
+                string sel_class = model_classes[sel_class_id];
 
-                string file = "download.jpg";
-
-                //var tensor = ImageUtil.CreateTensorFromImageFile(file);
-
-                var runner = session.GetRunner();
-                //runner.AddInput(graph["input"][0], tensor).Fetch(graph["output"][0]);
-                var output = runner.Run();
-                // output[0].Value() is a vector containing probabilities of
-                // labels for each image in the "batch". The batch size was 1.
-                // Find the most probably label index.
-
-                var result = output[0];
-
-                var rshape = result.Shape;
-                if (result.NumDims != 2 || rshape[0] != 1)
-                {
-                    var shape = "";
-                    foreach (var d in rshape)
-                    {
-                        shape += $"{d} ";
-                    }
-                    shape = shape.Trim();
-                    Console.WriteLine($"Error: expected to produce a [1 N] shaped tensor where N is the number of labels, instead it produced one with shape [{shape}]");
-                    Environment.Exit(1);
-                }
-
-                // You can get the data in two ways, as a multi-dimensional array, or arrays of arrays, 
-                // code can be nicer to read with one or the other, pick it based on how you want to process
-                // it
-                bool jagged = true;
-
-                var bestIdx = 0;
-                float p = 0, best = 0;
-
-                List<string> temps = new List<string>();
-                if (jagged)
-                {
-
-                    var probabilities = ((float[][])result.GetValue(jagged: true))[0];
-                    for (int i = 0; i < probabilities.Length; i++)
-                    {
-                        if (probabilities[i] > best)
-                        {
-                            bestIdx = i;
-                            best = probabilities[i];
-                        }
-                        if (i <= 1000) temps.Add(labels[i] + " " + probabilities[i].ToString());
-
-                    }
-
-                }
-                else
-                {
-                    var val = (float[,])result.GetValue(jagged: false);
-
-                    // Result is [1,N], flatten array
-                    for (int i = 0; i < val.GetLength(1); i++)
-                    {
-                        if (val[0, i] > best)
-                        {
-                            bestIdx = i;
-                            best = val[0, i];
-                        }
-                    }
-                }
-
-                string ans = $"{file} best match: [{bestIdx}] {best * 100.0}% {labels[bestIdx]}";
+                //add annotation
+                txtAnnotation.Text = sel_class + ": " + Math.Round(conf, 2).ToString();
+                btnAnnotate_Click(sender, e);
             }
         }
 
+        private void SpotkeywordsInAudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //resample all audio to 16kHz
+            List<double> dblx = curSample.Resample(0, curSample.time[curSample.time.Length - 1], 16000);
+
+            //steps of 0.1 s -> skip 1600
+            int step = 1600;
+
+            //spans a 1s window each time
+            int duration = 16000;
+
+            List<int> detected_classes = new List<int>();
+            List<float> detected_confidences = new List<float>();
+
+            for (int k = 0; k < dblx.Count - duration; k += step)
+            {
+                float tt = (float)k / 16000;
+                saGL.SelectRegion(tt, tt + 1.0f);
+                picControlBar.Invalidate();
+                Application.DoEvents();
+
+                List<double> analyze_sample = new List<double>();
+                for (int i = k; i < k + duration; i++) analyze_sample.Add(dblx[i]);
+
+                int c = RunModel(analyze_sample, out float confidence);
+
+                detected_classes.Add(c);
+                detected_confidences.Add(confidence);
+            }
+            saGL.SelectRegion(0, 0);
+
+
+            //max suppression
+            float thresh = 0.99f;
+            for (int k = 0; k < detected_classes.Count; k++)
+            {
+                if (detected_confidences[k] >= thresh)
+                {
+                    //start tracking
+                    int track_id = detected_classes[k];
+
+                    int t0 = k;
+                    int search_idx = k + 1;
+                    while (search_idx < detected_classes.Count &&
+                        detected_classes[search_idx] == track_id &&
+                        detected_confidences[search_idx] >= thresh)
+                    {
+                        search_idx++;
+                    }
+
+                    int tf = search_idx;
+
+                    // dont update with unknown
+                    if (detected_classes[k] > 0)
+                    {
+                        string sel_class = model_classes[detected_classes[k]];
+                        txtAnnotation.Text = sel_class; // + ": " + Math.Round(conf, 2).ToString();
+
+                        // in theory, sound interval is
+                        // [tf, t0 + duration]
+                        float f_t0 = (float)tf * step / 16000f - 0.4f;
+                        float f_tf = ((float)t0 * step + duration) / 16000f + 0.25f;
+
+                        if (f_tf - f_t0 < 0.1) f_tf = f_t0 + 0.1f;
+                        saGL.SelectRegion(f_t0, f_tf);
+
+                        btnAnnotate_Click(sender, e);
+                    }
+
+                    // update k
+                    k = search_idx;
+                }
+            }
+        }
         #endregion
-
-
 
 
     }

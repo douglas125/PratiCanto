@@ -107,6 +107,7 @@
             this.medianToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autolearnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spotKeywordInSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
             this.learnFromThisFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.learnFromFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -168,7 +169,7 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
-            this.spotKeywordInSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spotkeywordsInAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -711,6 +712,7 @@
             this.autolearnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadModelToolStripMenuItem,
             this.spotKeywordInSelectionToolStripMenuItem,
+            this.spotkeywordsInAudioToolStripMenuItem,
             this.toolStripMenuItem19,
             this.learnFromThisFileToolStripMenuItem,
             this.learnFromFolderToolStripMenuItem,
@@ -725,6 +727,12 @@
             this.loadModelToolStripMenuItem.Name = "loadModelToolStripMenuItem";
             resources.ApplyResources(this.loadModelToolStripMenuItem, "loadModelToolStripMenuItem");
             this.loadModelToolStripMenuItem.Click += new System.EventHandler(this.loadModelToolStripMenuItem_Click);
+            // 
+            // spotKeywordInSelectionToolStripMenuItem
+            // 
+            resources.ApplyResources(this.spotKeywordInSelectionToolStripMenuItem, "spotKeywordInSelectionToolStripMenuItem");
+            this.spotKeywordInSelectionToolStripMenuItem.Name = "spotKeywordInSelectionToolStripMenuItem";
+            this.spotKeywordInSelectionToolStripMenuItem.Click += new System.EventHandler(this.SpotKeywordInSelectionToolStripMenuItem_Click);
             // 
             // toolStripMenuItem19
             // 
@@ -1139,11 +1147,11 @@
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
             // 
-            // spotKeywordInSelectionToolStripMenuItem
+            // spotkeywordsInAudioToolStripMenuItem
             // 
-            this.spotKeywordInSelectionToolStripMenuItem.Name = "spotKeywordInSelectionToolStripMenuItem";
-            resources.ApplyResources(this.spotKeywordInSelectionToolStripMenuItem, "spotKeywordInSelectionToolStripMenuItem");
-            this.spotKeywordInSelectionToolStripMenuItem.Click += new System.EventHandler(this.SpotKeywordInSelectionToolStripMenuItem_Click);
+            resources.ApplyResources(this.spotkeywordsInAudioToolStripMenuItem, "spotkeywordsInAudioToolStripMenuItem");
+            this.spotkeywordsInAudioToolStripMenuItem.Name = "spotkeywordsInAudioToolStripMenuItem";
+            this.spotkeywordsInAudioToolStripMenuItem.Click += new System.EventHandler(this.SpotkeywordsInAudioToolStripMenuItem_Click);
             // 
             // frmAudioComparer
             // 
@@ -1317,6 +1325,7 @@
         private System.Windows.Forms.ToolStripMenuItem loadModelToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem19;
         private System.Windows.Forms.ToolStripMenuItem spotKeywordInSelectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spotkeywordsInAudioToolStripMenuItem;
     }
 }
 

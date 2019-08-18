@@ -121,13 +121,128 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 26</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 26</value>
+  </data>
+  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;View</value>
+  </data>
+  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 26</value>
+  </data>
+  <data name="editToolStripMenuItem.Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="filterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 26</value>
+  </data>
+  <data name="filterToolStripMenuItem.Text" xml:space="preserve">
+    <value>F&amp;ilter</value>
+  </data>
+  <data name="loadModelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="loadModelToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Load model...</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="spotKeywordInSelectionToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spotKeywordInSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="spotKeywordInSelectionToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Spot keyword in selection</value>
+  </data>
+  <data name="spotkeywordsInAudioToolStripMenuItem.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="spotkeywordsInAudioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="spotkeywordsInAudioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Spot &amp;keywords in all audio</value>
+  </data>
+  <data name="toolStripMenuItem19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 6</value>
+  </data>
+  <data name="toolStripMenuItem19.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="learnFromThisFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="learnFromThisFileToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Learn from this file</value>
+  </data>
+  <data name="learnFromThisFileToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="learnFromFolderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="learnFromFolderToolStripMenuItem.Text" xml:space="preserve">
+    <value>L&amp;earn from folder...</value>
+  </data>
+  <data name="learnFromFolderToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="classifySelectionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Q</value>
+  </data>
+  <data name="classifySelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="classifySelectionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Classify selection</value>
+  </data>
+  <data name="classifySelectionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="autoAnnotateSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="autoAnnotateSelectionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Auto annotate selection</value>
+  </data>
+  <data name="autoAnnotateSelectionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="phoneticSearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>267, 26</value>
+  </data>
+  <data name="phoneticSearchToolStripMenuItem.Text" xml:space="preserve">
+    <value>Phonetic search...</value>
+  </data>
+  <data name="phoneticSearchToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="autolearnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>37, 26</value>
+  </data>
+  <data name="autolearnToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;AI</value>
+  </data>
+  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 26</value>
+  </data>
+  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
   <data name="menuMain.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="menuMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1547, 28</value>
+    <value>1547, 30</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuMain.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -145,12 +260,6 @@
   </data>
   <data name="&gt;&gt;menuMain.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 24</value>
-  </data>
-  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;File</value>
   </data>
   <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>268, 26</value>
@@ -223,12 +332,6 @@
   </data>
   <data name="quitToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quit</value>
-  </data>
-  <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 24</value>
-  </data>
-  <data name="viewToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;View</value>
   </data>
   <data name="spectreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>307, 26</value>
@@ -413,13 +516,6 @@
   <data name="regionAnalysisToolStripMenuItem.Text" xml:space="preserve">
     <value>Region analysis...</value>
   </data>
-  <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 24</value>
-  </data>
-  <data name="editToolStripMenuItem.Text" xml:space="preserve">
-    <value>Edit</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="baseFrequencyAndFormantsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+F</value>
   </data>
@@ -473,12 +569,6 @@
   </data>
   <data name="decreaseToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Decrease</value>
-  </data>
-  <data name="filterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 24</value>
-  </data>
-  <data name="filterToolStripMenuItem.Text" xml:space="preserve">
-    <value>F&amp;ilter</value>
   </data>
   <data name="averageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 26</value>
@@ -558,72 +648,6 @@
   <data name="medianToolStripMenuItem1.Text" xml:space="preserve">
     <value>Median</value>
   </data>
-  <data name="autolearnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 24</value>
-  </data>
-  <data name="autolearnToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Autolearn</value>
-  </data>
-  <data name="loadModelToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 26</value>
-  </data>
-  <data name="loadModelToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Load model...</value>
-  </data>
-  <data name="toolStripMenuItem19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 6</value>
-  </data>
-  <data name="learnFromThisFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 26</value>
-  </data>
-  <data name="learnFromThisFileToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Learn from this file</value>
-  </data>
-  <data name="learnFromThisFileToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="learnFromFolderToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 26</value>
-  </data>
-  <data name="learnFromFolderToolStripMenuItem.Text" xml:space="preserve">
-    <value>L&amp;earn from folder...</value>
-  </data>
-  <data name="learnFromFolderToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="classifySelectionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+Q</value>
-  </data>
-  <data name="classifySelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 26</value>
-  </data>
-  <data name="classifySelectionToolStripMenuItem.Text" xml:space="preserve">
-    <value>Classify selection</value>
-  </data>
-  <data name="classifySelectionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="autoAnnotateSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 26</value>
-  </data>
-  <data name="autoAnnotateSelectionToolStripMenuItem.Text" xml:space="preserve">
-    <value>Auto annotate selection</value>
-  </data>
-  <data name="autoAnnotateSelectionToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="phoneticSearchToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>257, 26</value>
-  </data>
-  <data name="phoneticSearchToolStripMenuItem.Text" xml:space="preserve">
-    <value>Phonetic search...</value>
-  </data>
-  <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 24</value>
-  </data>
-  <data name="helpToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Help</value>
-  </data>
   <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 26</value>
   </data>
@@ -634,7 +658,7 @@
     <value>132, 17</value>
   </metadata>
   <data name="toolMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 28</value>
+    <value>0, 30</value>
   </data>
   <data name="toolMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 3, 0</value>
@@ -1272,43 +1296,43 @@
   <data name="btnCleanAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAhWSURBVFhHjZcLUJTXFcdRWzVa2ukjadOW0ja2o6JprcWK
-        qRm1lohilGrHRoNCiuAbQRaWV3jIS0B8gLCIssouAosuQZ5iEV0rGCEgmCDYJL4TSYKGtxDw9P//ZnEy
-        k4B7Zn7D8t1vzz33nHPPOWs1gowx/30qfn5+L6lUqpUBAQHhQWp1anBwsGmYoKCgQj7H+qZAlWqh+Stf
-        l2/os0iw6SuhoaGpYWFhtyIjIrr279//ZW5OrmTrsyUnO1cOp2dIWqpGTmTniF6nF22mtic2NvZRgL//
-        k8jIyAYY5aNWq39vVme52NnZ2Xtu3NgeFxfXYTKZpLy8XGKio/uoWB0Q0LvTa+ejYP/A6m3bthUuXbq0
-        cdeuXVfhiQasPQ5UqwdoRHV1teh0uscwvhOHKAwMDPypWf3o4uvrm7xhw4avKs5UCE8cEhz8mYuLy/05
-        c+b4mV/RgkhAt24BJ8HPwXxQBBZs3759npeX13lvb+8+7VFtF4wYDA4K6oVHDmB9ZMHmNkGBQb3mLzxc
-        vHhxAB6vAr8FfwD/An8CvwZ8/ndgAxaZ//8N4PoaYAdsPTw8irds2dJffemyQO+XMMoBz79dmESJCYl9
-        /MLq1aufx6MIEKQsWlmtABrwK0CDDgMnMAmEA29AWQcOgR+AaeCou7t79oH9Bzozj2SKWqVKwbNvF8Ry
-        eXRUdEe6Jn2I8d68eXPJcicnno4uDwEvgLUgDdAIe5AOloOfgb1gJ3jexsbG+9X58/8bqla3xMXGdpk9
-        MIgwRGF9ZMHGg1XnzkvzB9fFaDQOIfm6+MzHx+dGIL7s4OBwfvbs2UZ46/Xp06dHv2xnV4OccYPH4hYu
-        XPgxbk5TaEjIQ+aRXq8faGxskg8//Ehqr7wnYaGh3dDDUI4sb61fX5IQn/BVy/VWefjwkQwNDUlnZ6c0
-        NjZKYWGhJCYm9sSHxXfCUz3YqJtZHhsT25N8MPnxyZMnpa6uTtrb24XS398vX3zRrhigSdMMIceqzduM
-        KvPdXV2boLj3RusNxYAnT55Ib2+vPHjQJi0trXK55oqcPVMpRYUlUlJUJuerTHK1oVFu374jHR0dMjg4
-        +NSAu3fvSVpa2mNfH5+PrK2t55r3GFVmA9WCBQsS4M6ucCSkXqfrvoh6cO3a+1Jf36BsWHy69KkBZ8or
-        pKb6sjQ3X5dbt24pXsjIyOBt6mYo1q5dWwGdbwCLitIvwTZwGYTOnTvXZd68eWVubm7vw+V34MYef5Vq
-        AAWnE4VHmB/KM3//Dt4eGh0SElLm5ORkQCKWQscMwCTOBLxZz5QfgRhQCzaAJaASvAlYfHjFuD5m7Nix
-        npMmTTqFz7wdrAnF4C/gx+A02AWYdAbA22KRPAdY9TzNfwMBT/Ey+DeYCVj5XAEbDw3mNfyH+fNfAd9j
-        IXoV8Nr5ABYqi2Qc2AR4+oOABYd1/G+A9/934BcgGSwDLEShgAZTNoJEQCNfB4WAteE1YHFX/CeoByws
-        PDHdxyo4HrDSMbbMlVcA6z89wfjyMw2YCOIAN2eP4CF8gcXCTRh3L+AMjIAu5gl4uuHG9BagJ74H6I3j
-        gOWX5Zqbc53lmg1r2EPPFIaA7mYIgkEseAkwmfwBGxGTjG5dAHja9YAxHgvodsacjWk1yAA8/VRgkXwX
-        sMbTAGY73c8T0d0MCXOAdZ+GMa7MARUYviUMwW7AO+8OCgA9RsMtFjYaE6D1fwQnQBagcczwOkCjFgOW
-        V8aZicnn3JSdkG4/C9hFqYdetVh4QhaOjba2tm9gQjKhU5ZUlpdfXLVq1X1WtwtVVYLCJJs3bZIKTEzo
-        eLJixYpP83S6xv1JSYapU6deBRxYaBC9aHEI6MbnUMV8MZBcWbZsmeTl5UnW8ePi6uoqBUajmC5cEEw8
-        knrokNTV1go6o2AMk/r30PHeflvQ/zmOyY4dO2TGjBn3p02bRgN4gyyXtWvWlLu7uSkbcdNsvV4iwsPR
-        B6rkbEWFxMTESHFxsVx5911JiI9XjLxcUyMJCQkSFRUl+QaDYGYUl5UrxcvTUwwGA5PbcsFQOrh161Y5
-        V1kpTkuW0L1y7+5d2b17t8ycORPzwgdy/Ngx5TMN4ntTpkyR9PR0aULrxgwpy52dJSU5WTZ6eAj6A+uJ
-        xTImNTW1e9++fWLAyWJx2hKcli5OhsKy0lK03wY5ptViJM9WjNFlZWEsz1Q8kpebK5iSlbU9cXHKDAGd
-        36FeRfszhHd5fFZWfvshxBjzveJ2bvrmunXK5+vNzQIPiRYG3Eb7Vfn5cYKWtgcPFA8x9sVFRbJnzx5J
-        Ston+fn5D6BzAmAYRjWCi7TUOveE4WH1pRoknEneKXhHUlJSJBHxzcnJkYzDhyXz6FExnjol8JQcwOb8
-        fDI/X/bu3asYgXFM+NugqfGaGHML7kLnDwGN4AFHNIKLrGwv4ERNVVVVQ3cw5fT19inTzc2bNzF8nBGN
-        Jh1JZ5AjGUcEoxkyXi9FRcVy+vRpDCXNyrvd3d3yySefKgbotCf+B53sHZPBqF7gIivbi/b29uHI5qut
-        La39/Y/7lbGsp6cHiXhfGb/OVZ5XpqLS4nK5aLqEsLTI5599LgMDA8o41tfXB++kPcnMzPwYg2wSdLI0
-        W4NRc+GpB4DD+PHjfWbNmqVHLGtqa2vvtbW19T/LAHoNXmjTaDT1qCMFEyZMiBg3bpwj9FnkAS6w3NJS
-        llY2oNegxHPy5MnhmH4OoEBlODo6GhYtWnQKVbEMxek/jo5ORmdn51MoONqJEycexPAZBeP5Q4UNioMo
-        mxmHFebAiJsPC1+gmzgZfR/8BLwI+BOM9Z/K2B84vLJBsSP+2fw/y60tYOPh+/weOyfbNSshPfw1sbL6
-        P3SghotyrBKVAAAAAElFTkSuQmCC
+        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
+        /2+uhojHxYEIAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnCleanAll.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -2172,12 +2196,6 @@ Show/hide in s&amp;pectrogram
   </data>
   <data name="&gt;&gt;picPlay.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="spotKeywordInSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 26</value>
-  </data>
-  <data name="spotKeywordInSelectionToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Spot keyword in selection</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -8819,6 +8837,12 @@ Show/hide in s&amp;pectrogram
   <data name="&gt;&gt;loadModelToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;spotKeywordInSelectionToolStripMenuItem.Name" xml:space="preserve">
+    <value>spotKeywordInSelectionToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;spotKeywordInSelectionToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripMenuItem19.Name" xml:space="preserve">
     <value>toolStripMenuItem19</value>
   </data>
@@ -9065,10 +9089,10 @@ Show/hide in s&amp;pectrogram
   <data name="&gt;&gt;toolTip.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;spotKeywordInSelectionToolStripMenuItem.Name" xml:space="preserve">
-    <value>spotKeywordInSelectionToolStripMenuItem</value>
+  <data name="&gt;&gt;spotkeywordsInAudioToolStripMenuItem.Name" xml:space="preserve">
+    <value>spotkeywordsInAudioToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;spotKeywordInSelectionToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;spotkeywordsInAudioToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
