@@ -1495,7 +1495,13 @@ namespace AudioComparer
             // no graph
             if (graph == null) return;
             // no selection or too short
-            if (saGL.pfSelX-saGL.p0SelX < 0.7) return;
+            if (saGL.pfSelX - saGL.p0SelX < 0.7)
+            {
+                //add annotation
+                txtAnnotation.Text = "?";
+                btnAnnotate_Click(sender, e);
+                return;
+            }
 
             //resample to 16kHz
             List<double> dblx = curSample.Resample(saGL.p0SelX, saGL.pfSelX, 16000);
@@ -1533,11 +1539,6 @@ namespace AudioComparer
             if (lstIntens.Count < 5) return;
 
             float audioavg = SampleAudio.RealTime.getMean(lstIntens.ToArray(), out float audiostd);
-
-            //attempt to find audio regions
-            float[] audio_regions = new float[dblx.Count];
-            for (int k = 0; k < dblx.Count; k++) audio_regions[k] = (float)Math.Abs(dblx[k]);
-            SampleAudio.ApplyMedianFilter(audio_regions, 0.1, 1.0 / 16000.0);
             
             //steps of 0.1 s -> skip 1600
             int step = 1600;
@@ -1575,7 +1576,7 @@ namespace AudioComparer
 
                     if (confidence > CUTOFF_CONFIDENCE)
                     {
-                        for (int q = 0; q < 4; q++)
+                        for (int q = 0; q < 3; q++)
                         {
                             k += step;
                             detected_classes.Add(c);
@@ -1621,8 +1622,8 @@ namespace AudioComparer
 
                         // in theory, sound interval is
                         // [tf, t0 + duration]
-                        float f_t0 = (float)tf * step / 16000f - 0.35f;
-                        float f_tf = ((float)t0 * step + duration) / 16000f + 0.2f;
+                        float f_t0 = (float)tf * step / 16000f - 0.38f;
+                        float f_tf = ((float)t0 * step + duration) / 16000f + 0.23f;
 
                         if (f_tf - f_t0 < 0.1) f_tf = f_t0 + 0.1f;
                         saGL.SelectRegion(f_t0, f_tf);
