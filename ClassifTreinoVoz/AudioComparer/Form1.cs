@@ -1430,6 +1430,7 @@ namespace AudioComparer
         #region Deep learning models
         TFGraph graph = null;
         string[] model_classes = null;
+        private const float CUTOFF_CONFIDENCE = 0.99f;
 
         private void loadModelToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1512,9 +1513,32 @@ namespace AudioComparer
 
         private void SpotkeywordsInAudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (curSample == null) return;
             //resample all audio to 16kHz
             List<double> dblx = curSample.Resample(0, curSample.time[curSample.time.Length - 1], 16000);
 
+            //Find a nice cutoff point for intensity
+            List<float> lstIntens = new List<float>();
+            foreach (double d in dblx) lstIntens.Add( (float)Math.Abs(d) );
+            lstIntens.Sort();
+            float cutoff = lstIntens[(int)(0.15 * lstIntens.Count)];
+            for (int k = 0; k < lstIntens.Count; k++)
+            {
+                if (lstIntens[k] < cutoff )
+                {
+                    lstIntens.RemoveAt(k);
+                    k--;
+                }
+            }
+            if (lstIntens.Count < 5) return;
+
+            float audioavg = SampleAudio.RealTime.getMean(lstIntens.ToArray(), out float audiostd);
+
+            //attempt to find audio regions
+            float[] audio_regions = new float[dblx.Count];
+            for (int k = 0; k < dblx.Count; k++) audio_regions[k] = (float)Math.Abs(dblx[k]);
+            SampleAudio.ApplyMedianFilter(audio_regions, 0.1, 1.0 / 16000.0);
+            
             //steps of 0.1 s -> skip 1600
             int step = 1600;
 
@@ -1527,23 +1551,50 @@ namespace AudioComparer
             for (int k = 0; k < dblx.Count - duration; k += step)
             {
                 float tt = (float)k / 16000;
-                saGL.SelectRegion(tt, tt + 1.0f);
-                picControlBar.Invalidate();
-                Application.DoEvents();
 
                 List<double> analyze_sample = new List<double>();
-                for (int i = k; i < k + duration; i++) analyze_sample.Add(dblx[i]);
+                float cur_avg = 0;
+                for (int i = k; i < k + duration; i++)
+                {
+                    analyze_sample.Add(dblx[i]);
+                    cur_avg += (float)Math.Abs(dblx[i]);
+                }
+                cur_avg /= (float)duration;
 
-                int c = RunModel(analyze_sample, out float confidence);
+                if (cur_avg > audioavg - 0.25*audiostd)
+                {
+                    //display feedback
+                    saGL.SelectRegion(tt, tt + 1.0f);
+                    picControlBar.Invalidate();
+                    Application.DoEvents();
 
-                detected_classes.Add(c);
-                detected_confidences.Add(confidence);
+                    int c = RunModel(analyze_sample, out float confidence);
+
+                    detected_classes.Add(c);
+                    detected_confidences.Add(confidence);
+
+                    if (confidence > CUTOFF_CONFIDENCE)
+                    {
+                        for (int q = 0; q < 4; q++)
+                        {
+                            k += step;
+                            detected_classes.Add(c);
+                            detected_confidences.Add(confidence);
+                        }
+                    }
+                }
+                else
+                {
+                    //discarded by intensity
+                    detected_classes.Add(0);
+                    detected_confidences.Add(0);
+                }
             }
             saGL.SelectRegion(0, 0);
 
 
             //max suppression
-            float thresh = 0.99f;
+            float thresh = CUTOFF_CONFIDENCE;
             for (int k = 0; k < detected_classes.Count; k++)
             {
                 if (detected_confidences[k] >= thresh)
@@ -1570,8 +1621,8 @@ namespace AudioComparer
 
                         // in theory, sound interval is
                         // [tf, t0 + duration]
-                        float f_t0 = (float)tf * step / 16000f - 0.4f;
-                        float f_tf = ((float)t0 * step + duration) / 16000f + 0.25f;
+                        float f_t0 = (float)tf * step / 16000f - 0.35f;
+                        float f_tf = ((float)t0 * step + duration) / 16000f + 0.2f;
 
                         if (f_tf - f_t0 < 0.1) f_tf = f_t0 + 0.1f;
                         saGL.SelectRegion(f_t0, f_tf);

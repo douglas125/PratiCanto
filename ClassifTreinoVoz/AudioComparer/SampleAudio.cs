@@ -1954,17 +1954,25 @@ namespace AudioComparer
         /// <summary>Applies median filter to audio</summary>
         public void FilterMedian(double timeWindow)
         {
-            int windowSize = (int)(0.5*timeWindow / this.time[1]);
+            ApplyMedianFilter(audioData, timeWindow, this.time[1]);
+        }
+
+        /// <summary>Applies median filter to data</summary>
+        /// <param name="data">Data to apply median filter to</param>
+        /// <param name="timeWindow">Time window in seconds</param>
+        /// <param name="timestep">Time step of sample (1/sampling rate)</param>
+        public static void ApplyMedianFilter(float[] data, double timeWindow, double timestep)
+        {
+            int windowSize = (int)(0.5 * timeWindow / timestep);
             if (windowSize < 1) windowSize = 1;
 
-            double w = 1.0 / (2 * windowSize + 1);
             List<float> vals = new List<float>();
-            for (int k = windowSize; k < audioData.Length - windowSize; k++)
+            for (int k = windowSize; k < data.Length - windowSize; k++)
             {
                 vals.Clear();
-                for (int i = -windowSize; i <= windowSize; i++) vals.Add(audioData[k+i]);
+                for (int i = -windowSize; i <= windowSize; i++) vals.Add(data[k + i]);
                 vals.Sort();
-                audioData[k] = vals[windowSize];
+                data[k] = vals[windowSize];
             }
         }
 

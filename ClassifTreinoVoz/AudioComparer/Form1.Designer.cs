@@ -108,6 +108,7 @@
             this.autolearnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spotKeywordInSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spotkeywordsInAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
             this.learnFromThisFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.learnFromFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -169,7 +170,6 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
-            this.spotkeywordsInAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -734,6 +734,12 @@
             this.spotKeywordInSelectionToolStripMenuItem.Name = "spotKeywordInSelectionToolStripMenuItem";
             this.spotKeywordInSelectionToolStripMenuItem.Click += new System.EventHandler(this.SpotKeywordInSelectionToolStripMenuItem_Click);
             // 
+            // spotkeywordsInAudioToolStripMenuItem
+            // 
+            resources.ApplyResources(this.spotkeywordsInAudioToolStripMenuItem, "spotkeywordsInAudioToolStripMenuItem");
+            this.spotkeywordsInAudioToolStripMenuItem.Name = "spotkeywordsInAudioToolStripMenuItem";
+            this.spotkeywordsInAudioToolStripMenuItem.Click += new System.EventHandler(this.SpotkeywordsInAudioToolStripMenuItem_Click);
+            // 
             // toolStripMenuItem19
             // 
             this.toolStripMenuItem19.Name = "toolStripMenuItem19";
@@ -1146,12 +1152,6 @@
             resources.ApplyResources(this.picPlay, "picPlay");
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
-            // 
-            // spotkeywordsInAudioToolStripMenuItem
-            // 
-            resources.ApplyResources(this.spotkeywordsInAudioToolStripMenuItem, "spotkeywordsInAudioToolStripMenuItem");
-            this.spotkeywordsInAudioToolStripMenuItem.Name = "spotkeywordsInAudioToolStripMenuItem";
-            this.spotkeywordsInAudioToolStripMenuItem.Click += new System.EventHandler(this.SpotkeywordsInAudioToolStripMenuItem_Click);
             // 
             // frmAudioComparer
             // 
