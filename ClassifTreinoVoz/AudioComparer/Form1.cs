@@ -246,7 +246,6 @@ namespace AudioComparer
             {
                 List<float> b2 = new List<float>();
 
-
                 int sampleRate = WaveFormat.SampleRate;
                 for (int n = 0; n < sampleCount; n++)
                 {
@@ -284,8 +283,10 @@ namespace AudioComparer
 
                 recFileName = recFolder + "\\" + DateTime.Now.Hour.ToString() + "h" + DateTime.Now.Minute.ToString().PadLeft(2, '0') + "min" + DateTime.Now.Second.ToString().PadLeft(2, '0') + "s.wav";
 
-                rt = new SampleAudio.RealTime();
-                rt.OnDataReceived = SoundReceived;
+                rt = new SampleAudio.RealTime
+                {
+                    OnDataReceived = SoundReceived
+                };
                 rt.StartRecording(cmbInputDevice.SelectedIndex);
 
                 btnRec.Image = picStop.Image;
@@ -306,23 +307,6 @@ namespace AudioComparer
 
                 btnRec.Image = picRec.Image;
 
-                //SaveFileDialog sfd = new SaveFileDialog();
-                //FileInfo fi = new FileInfo(recFileName);
-                //sfd.FileName = fi.Name;
-                //sfd.InitialDirectory = fi.DirectoryName;
-
-                //sfd.Filter = "REC|*.wav";
-                //if (sfd.ShowDialog() == DialogResult.OK)
-                //{
-                //    curSample.SavePart(sfd.FileName, curSample.time[0], curSample.time[curSample.time.Length - 1]);
-                //    curSample.AudioFile = sfd.FileName;
-                //}
-                //else
-                //{
-                //    curSample.SavePart(recFileName, curSample.time[0], curSample.time[curSample.time.Length - 1]);
-                //    curSample.AudioFile = recFileName;
-                //}
-
             }
         }
 
@@ -330,15 +314,11 @@ namespace AudioComparer
         {
             saGL.DrawRealTime(rt);
         }
-
-
-
         #endregion
-
 
         #region Replay audio
         bool replaying = false;
-        WaveOut wo, wo2;
+        private WaveOut wo, wo2;
         private void btnPlay_Click(object sender, EventArgs e)
         {
             int repSpeedPercent;
@@ -1586,7 +1566,7 @@ namespace AudioComparer
                 }
                 cur_avg /= (float)duration;
 
-                if (cur_avg > audioavg - 0.25*audiostd)
+                if (cur_avg > audioavg - 0.25 * audiostd)
                 {
                     //display feedback
                     saGL.SelectRegion(tt, tt + 1.0f);
@@ -1601,7 +1581,7 @@ namespace AudioComparer
                     if (confidence > CUTOFF_CONFIDENCE)
                     {
                         // skips q steps if confidence is high
-                        for (int q = 0; q < 2; q++)
+                        for (int q = 0; q < 3; q++)
                         {
                             k += step;
                             detected_classes.Add(c);

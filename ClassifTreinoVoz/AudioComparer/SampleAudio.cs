@@ -752,8 +752,6 @@ namespace AudioComparer
                 }
             }
 
-
-
             #endregion
 
             #region Identify silence parameters
