@@ -70,6 +70,8 @@ namespace AudioComparer
         SampleAudio curSample;
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!isVoiceAnalysisLicensed) return;
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Rec|*.wav;*.mp3";
 
@@ -151,12 +153,28 @@ namespace AudioComparer
             //SetClient();
         }
         #endregion
-
+        /// <summary>Is this module licensed?</summary>
+        bool isVoiceAnalysisLicensed;
         private void frmAudioComparer_Load(object sender, EventArgs e)
         {
-            gBoxAudio.Enabled = SoftwareKey.CheckLicense("VoiceAnalysis", false);
+            isVoiceAnalysisLicensed = false; // SoftwareKey.CheckLicense("VoiceAnalysis", false);
 
-            
+            //disables features that require licensing
+            // gBoxAudio.Enabled = isVoiceAnalysisLicensed;
+            btnClient.Enabled = isVoiceAnalysisLicensed;
+            btnClient.Visible = isVoiceAnalysisLicensed;
+            btnSaveRecord.Enabled = isVoiceAnalysisLicensed;
+            fileToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+            viewToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+            editToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+            filterToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+
+            btnComputeF0formants.Enabled = isVoiceAnalysisLicensed;
+            btnComputeF0formants.Visible = isVoiceAnalysisLicensed;
+
+            btnAnnotate.Visible = isVoiceAnalysisLicensed;
+            txtAnnotation.Visible = isVoiceAnalysisLicensed;
+
             SampleAudioGL.InfoBarItems = lblFloatingAnnotMenuItems.Text;
 
             //set client if already chosen
@@ -165,13 +183,14 @@ namespace AudioComparer
             //phonetic symbols
             PutPhoneticSymbols();
 
-
             //List mics
             List<string> mics = SampleAudio.RealTime.GetMicrophones();
             foreach (string s in mics) cmbInputDevice.Items.Add(s);
             if (mics.Count <= 1) cmbInputDevice.Visible = false;
             if (mics.Count >= 1) cmbInputDevice.SelectedIndex = 0;
 
+            //load deep learning model if available
+            loadModelToolStripMenuItem_Click(sender, e);
 
             initGL();
         }
@@ -364,6 +383,7 @@ namespace AudioComparer
                 ps.PlayTimeFunc = DrawTime;
                 ps.ReplaySpeed = 0.01 * (double)repSpeedPercent;
 
+                if (wo != null) wo.Dispose();
                 wo = new WaveOut();
                 wo.PlaybackStopped += new EventHandler<StoppedEventArgs>(wo_PlaybackStopped);
                 wo.Init(ps);
@@ -383,6 +403,7 @@ namespace AudioComparer
                     ps2.PlayTimeFunc = DrawTimeComp;
                     saGLCompare.DrawCurrentPlaybackTime = true;
 
+                    if (wo2 != null) wo2.Dispose();
                     wo2 = new WaveOut();
                     wo2.Init(ps2);
                     wo2.Play();
@@ -946,6 +967,7 @@ namespace AudioComparer
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
+                if (!isVoiceAnalysisLicensed) return;
                 curSample.SavePart(sfd.FileName, 0, curSample.time[curSample.time.Length - 1]);
                 this.Text = sfd.FileName;
             }
@@ -1447,6 +1469,8 @@ namespace AudioComparer
 
                 spotkeywordsInAudioToolStripMenuItem.Enabled = true;
                 spotKeywordInSelectionToolStripMenuItem.Enabled = true;
+
+                loadModelToolStripMenuItem.Visible = false;
             }
             catch
             {
@@ -1576,7 +1600,8 @@ namespace AudioComparer
 
                     if (confidence > CUTOFF_CONFIDENCE)
                     {
-                        for (int q = 0; q < 3; q++)
+                        // skips q steps if confidence is high
+                        for (int q = 0; q < 2; q++)
                         {
                             k += step;
                             detected_classes.Add(c);
