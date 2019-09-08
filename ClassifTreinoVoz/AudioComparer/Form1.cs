@@ -12,6 +12,7 @@ using System.IO;
 using ClassifTreinoVoz;
 using System.Drawing.Imaging;
 using OpenTK.Graphics.OpenGL;
+using TensorFlow;
 
 namespace AudioComparer
 {
@@ -69,6 +70,8 @@ namespace AudioComparer
         SampleAudio curSample;
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!isVoiceAnalysisLicensed) return;
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Rec|*.wav;*.mp3";
 
@@ -150,12 +153,28 @@ namespace AudioComparer
             //SetClient();
         }
         #endregion
-
+        /// <summary>Is this module licensed?</summary>
+        bool isVoiceAnalysisLicensed;
         private void frmAudioComparer_Load(object sender, EventArgs e)
         {
-            gBoxAudio.Enabled = SoftwareKey.CheckLicense("VoiceAnalysis", false);
+            isVoiceAnalysisLicensed = false; // SoftwareKey.CheckLicense("VoiceAnalysis", false);
 
-            
+            //disables features that require licensing
+            // gBoxAudio.Enabled = isVoiceAnalysisLicensed;
+            btnClient.Enabled = isVoiceAnalysisLicensed;
+            btnClient.Visible = isVoiceAnalysisLicensed;
+            btnSaveRecord.Enabled = isVoiceAnalysisLicensed;
+            fileToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+            viewToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+            editToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+            filterToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
+
+            btnComputeF0formants.Enabled = isVoiceAnalysisLicensed;
+            btnComputeF0formants.Visible = isVoiceAnalysisLicensed;
+
+            btnAnnotate.Visible = isVoiceAnalysisLicensed;
+            txtAnnotation.Visible = isVoiceAnalysisLicensed;
+
             SampleAudioGL.InfoBarItems = lblFloatingAnnotMenuItems.Text;
 
             //set client if already chosen
@@ -164,13 +183,14 @@ namespace AudioComparer
             //phonetic symbols
             PutPhoneticSymbols();
 
-
             //List mics
             List<string> mics = SampleAudio.RealTime.GetMicrophones();
             foreach (string s in mics) cmbInputDevice.Items.Add(s);
             if (mics.Count <= 1) cmbInputDevice.Visible = false;
             if (mics.Count >= 1) cmbInputDevice.SelectedIndex = 0;
 
+            //load deep learning model if available
+            loadModelToolStripMenuItem_Click(sender, e);
 
             initGL();
         }
@@ -363,6 +383,7 @@ namespace AudioComparer
                 ps.PlayTimeFunc = DrawTime;
                 ps.ReplaySpeed = 0.01 * (double)repSpeedPercent;
 
+                if (wo != null) wo.Dispose();
                 wo = new WaveOut();
                 wo.PlaybackStopped += new EventHandler<StoppedEventArgs>(wo_PlaybackStopped);
                 wo.Init(ps);
@@ -382,6 +403,7 @@ namespace AudioComparer
                     ps2.PlayTimeFunc = DrawTimeComp;
                     saGLCompare.DrawCurrentPlaybackTime = true;
 
+                    if (wo2 != null) wo2.Dispose();
                     wo2 = new WaveOut();
                     wo2.Init(ps2);
                     wo2.Play();
@@ -945,6 +967,7 @@ namespace AudioComparer
 
             if (sfd.ShowDialog() == DialogResult.OK)
             {
+                if (!isVoiceAnalysisLicensed) return;
                 curSample.SavePart(sfd.FileName, 0, curSample.time[curSample.time.Length - 1]);
                 this.Text = sfd.FileName;
             }
@@ -1379,8 +1402,9 @@ namespace AudioComparer
             curSample.Annotations.AddRange(phoneticSearchAnn);
             picControlBar.Invalidate();
         }
-
         #endregion
+
+
 
         private void convertWAVToMP3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1425,9 +1449,219 @@ namespace AudioComparer
         }
 
 
+        #region Deep learning models
+        TFGraph graph = null;
+        string[] model_classes = null;
+        private const float CUTOFF_CONFIDENCE = 0.99f;
 
- 
+        private void loadModelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string modelFile = Application.StartupPath + "\\DLModels\\attRNN.pb";
+                graph = new TFGraph();
+                // Load the serialized GraphDef from a file.
+                byte[] model = File.ReadAllBytes(modelFile);
+                model_classes = File.ReadAllText(modelFile + ".classes").Split(new string[] { "\r\n", "\n" },
+                    StringSplitOptions.RemoveEmptyEntries);
 
+                graph.Import(model, "");
+
+                spotkeywordsInAudioToolStripMenuItem.Enabled = true;
+                spotKeywordInSelectionToolStripMenuItem.Enabled = true;
+
+                loadModelToolStripMenuItem.Visible = false;
+            }
+            catch
+            {
+                //silently fail, user does not need to know this is happening
+            }
+        }
+
+        /// <summary>Runs the tensrflow model in an audio sample.
+        /// Returns selected class.</summary>
+        /// <param name="audiosample">Sample to use</param>
+        /// <param name="confidence">Output confidence</param>
+        /// <returns></returns>
+        private int RunModel(List<double> audiosample, out float confidence)
+        {
+            float[,] x = new float[1, audiosample.Count];
+
+            for (int k = 0; k < audiosample.Count; k++) x[0, k] = (float)audiosample[k];
+
+            confidence = 0;
+            int maxIdx = -1;
+            using (var session = new TFSession(graph))
+            {
+                TFTensor tensor = new TFTensor(x);
+                var runner = session.GetRunner();
+
+                runner.AddInput(graph["input"][0], tensor).Fetch(graph["output/Softmax"][0]);
+                var output = runner.Run();
+
+                var result = output[0];
+                float[,] val = (float[,])result.GetValue(jagged: false);
+
+                for (int k = 0; k < val.GetLength(1); k++)
+                {
+                    if (val[0, k] > confidence)
+                    {
+                        maxIdx = k;
+                        confidence = val[0, k];
+                    }
+                }
+            }
+            return maxIdx;
+        }
+
+        private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // no graph
+            if (graph == null) return;
+            // no selection or too short
+            if (saGL.pfSelX - saGL.p0SelX < 0.7)
+            {
+                //add annotation
+                txtAnnotation.Text = "?";
+                btnAnnotate_Click(sender, e);
+                return;
+            }
+
+            //resample to 16kHz
+            List<double> dblx = curSample.Resample(saGL.p0SelX, saGL.pfSelX, 16000);
+
+            int sel_class_id = RunModel(dblx, out float conf);
+            if (sel_class_id >= 0)
+            {
+                string sel_class = model_classes[sel_class_id];
+
+                //add annotation
+                txtAnnotation.Text = sel_class + ": " + Math.Round(conf, 2).ToString();
+                btnAnnotate_Click(sender, e);
+            }
+        }
+
+        private void SpotkeywordsInAudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (curSample == null) return;
+            //resample all audio to 16kHz
+            List<double> dblx = curSample.Resample(0, curSample.time[curSample.time.Length - 1], 16000);
+
+            //Find a nice cutoff point for intensity
+            List<float> lstIntens = new List<float>();
+            foreach (double d in dblx) lstIntens.Add( (float)Math.Abs(d) );
+            lstIntens.Sort();
+            float cutoff = lstIntens[(int)(0.15 * lstIntens.Count)];
+            for (int k = 0; k < lstIntens.Count; k++)
+            {
+                if (lstIntens[k] < cutoff )
+                {
+                    lstIntens.RemoveAt(k);
+                    k--;
+                }
+            }
+            if (lstIntens.Count < 5) return;
+
+            float audioavg = SampleAudio.RealTime.getMean(lstIntens.ToArray(), out float audiostd);
+            
+            //steps of 0.1 s -> skip 1600
+            int step = 1600;
+
+            //spans a 1s window each time
+            int duration = 16000;
+
+            List<int> detected_classes = new List<int>();
+            List<float> detected_confidences = new List<float>();
+
+            for (int k = 0; k < dblx.Count - duration; k += step)
+            {
+                float tt = (float)k / 16000;
+
+                List<double> analyze_sample = new List<double>();
+                float cur_avg = 0;
+                for (int i = k; i < k + duration; i++)
+                {
+                    analyze_sample.Add(dblx[i]);
+                    cur_avg += (float)Math.Abs(dblx[i]);
+                }
+                cur_avg /= (float)duration;
+
+                if (cur_avg > audioavg - 0.25*audiostd)
+                {
+                    //display feedback
+                    saGL.SelectRegion(tt, tt + 1.0f);
+                    picControlBar.Invalidate();
+                    Application.DoEvents();
+
+                    int c = RunModel(analyze_sample, out float confidence);
+
+                    detected_classes.Add(c);
+                    detected_confidences.Add(confidence);
+
+                    if (confidence > CUTOFF_CONFIDENCE)
+                    {
+                        // skips q steps if confidence is high
+                        for (int q = 0; q < 2; q++)
+                        {
+                            k += step;
+                            detected_classes.Add(c);
+                            detected_confidences.Add(confidence);
+                        }
+                    }
+                }
+                else
+                {
+                    //discarded by intensity
+                    detected_classes.Add(0);
+                    detected_confidences.Add(0);
+                }
+            }
+            saGL.SelectRegion(0, 0);
+
+
+            //max suppression
+            float thresh = CUTOFF_CONFIDENCE;
+            for (int k = 0; k < detected_classes.Count; k++)
+            {
+                if (detected_confidences[k] >= thresh)
+                {
+                    //start tracking
+                    int track_id = detected_classes[k];
+
+                    int t0 = k;
+                    int search_idx = k + 1;
+                    while (search_idx < detected_classes.Count &&
+                        detected_classes[search_idx] == track_id &&
+                        detected_confidences[search_idx] >= thresh)
+                    {
+                        search_idx++;
+                    }
+
+                    int tf = search_idx;
+
+                    // dont update with unknown
+                    if (detected_classes[k] > 0)
+                    {
+                        string sel_class = model_classes[detected_classes[k]];
+                        txtAnnotation.Text = sel_class; // + ": " + Math.Round(conf, 2).ToString();
+
+                        // in theory, sound interval is
+                        // [tf, t0 + duration]
+                        float f_t0 = (float)tf * step / 16000f - 0.38f;
+                        float f_tf = ((float)t0 * step + duration) / 16000f + 0.23f;
+
+                        if (f_tf - f_t0 < 0.1) f_tf = f_t0 + 0.1f;
+                        saGL.SelectRegion(f_t0, f_tf);
+
+                        btnAnnotate_Click(sender, e);
+                    }
+
+                    // update k
+                    k = search_idx;
+                }
+            }
+        }
+        #endregion
 
 
     }

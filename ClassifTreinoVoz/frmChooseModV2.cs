@@ -73,19 +73,14 @@ namespace ClassifTreinoVoz
             }
             #endregion
 
-
             //bool ValidLicense = AudioComparer.SoftwareKey.CheckLicense(lblFindLicense.Text, lblNotRegistered.Text);
-
 
             AdjustImgSizesToButtons(this.Controls);
 
-
             PratiCantoForms.DefaultClientImg = (Bitmap)picDefaultClientImage.Image;
-
 
             string version = String.Format("{0}", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
             lblVersion.Text += " " + version;
-
 
             //Initialize font
             frmPractice.InitFont();
@@ -109,9 +104,6 @@ namespace ClassifTreinoVoz
             }
             catch { }
 
-
-
-
             //this.WindowState = FormWindowState.Minimized;
             //btnPractice_Click(sender, e);
             //btnVoiceAnalyzer_Click(sender, e);
@@ -129,7 +121,7 @@ namespace ClassifTreinoVoz
             public static void CheckLicenses()
             {
                 MelodyCreator = true; // AudioComparer.SoftwareKey.CheckLicense("MelodyCreator", true);
-                VoiceAnalysis = AudioComparer.SoftwareKey.CheckLicense("VoiceAnalysis", true);
+                VoiceAnalysis = true; // AudioComparer.SoftwareKey.CheckLicense("VoiceAnalysis", true);
                 VoiceExtension = AudioComparer.SoftwareKey.CheckLicense("VoiceExtension", true);
                 VocalTrainer = AudioComparer.SoftwareKey.CheckLicense("VocalTrainer", true);
                 SustainedVowel = AudioComparer.SoftwareKey.CheckLicense("SustainedVowel", true);
