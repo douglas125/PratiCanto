@@ -494,11 +494,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Content Include="agreedToLicense.bool">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="app.config" />
     <None Include="ClassifTreinoVoz_TemporaryKey.pfx" />
     <None Include="Misc\free singing.mld" />
     <None Include="Misc\Polihymnia.ttf" />
     <None Include="packages.config" />
+    <Content Include="Polihymnia.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -512,6 +518,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="1463268151_microphone.ico" />
+    <Content Include="licence.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Misc\licenseDirectShowLibV2-1.txt" />
     <Content Include="Misc\Font licence.txt" />
     <Content Include="Misc\Fugue icons licence.txt" />

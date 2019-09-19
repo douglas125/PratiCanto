@@ -157,7 +157,7 @@ namespace AudioComparer
         bool isVoiceAnalysisLicensed;
         private void frmAudioComparer_Load(object sender, EventArgs e)
         {
-            isVoiceAnalysisLicensed = false; // SoftwareKey.CheckLicense("VoiceAnalysis", false);
+            isVoiceAnalysisLicensed = SoftwareKey.CheckLicense("VoiceAnalysis", true);
 
             //disables features that require licensing
             // gBoxAudio.Enabled = isVoiceAnalysisLicensed;
