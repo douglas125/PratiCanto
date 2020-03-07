@@ -85,8 +85,35 @@ namespace AudioComparer
             }
         }
 
+        private void MakeToolMainItemsVisible()
+        {
+            List<ToolStripItem> restrictedItems = new List<ToolStripItem>()
+            {
+                btnComputeF0formants,
+                btnAnnotate,
+                txtAnnotation,
+                cmbInputDevice
+            };
+
+            //make all menu items visible
+            foreach (ToolStripItem tsi in toolMain.Items)
+            {
+                if (restrictedItems.IndexOf(tsi) < 0) tsi.Visible = true;
+            }
+
+            // update restricted buttons
+            btnComputeF0formants.Visible = isVoiceAnalysisLicensed;
+
+            btnAnnotate.Visible = isVoiceAnalysisLicensed;
+            txtAnnotation.Visible = isVoiceAnalysisLicensed;
+
+            if (cmbInputDevice.Items.Count <= 1) cmbInputDevice.Visible = false;
+            if (cmbInputDevice.Items.Count >= 1) cmbInputDevice.SelectedIndex = 0;
+        }
         private void OpenAudioFile(string filename)
         {
+            MakeToolMainItemsVisible();
+
             //stop playback
             if (replaying && wo != null && wo.PlaybackState == PlaybackState.Playing) btnPlay_Click(this, new EventArgs());
 
@@ -170,10 +197,6 @@ namespace AudioComparer
             filterToolStripMenuItem.Enabled = isVoiceAnalysisLicensed;
 
             btnComputeF0formants.Enabled = isVoiceAnalysisLicensed;
-            btnComputeF0formants.Visible = isVoiceAnalysisLicensed;
-
-            btnAnnotate.Visible = isVoiceAnalysisLicensed;
-            txtAnnotation.Visible = isVoiceAnalysisLicensed;
 
             SampleAudioGL.InfoBarItems = lblFloatingAnnotMenuItems.Text;
 
@@ -307,6 +330,7 @@ namespace AudioComparer
 
                 btnRec.Image = picRec.Image;
 
+                MakeToolMainItemsVisible();
             }
         }
 

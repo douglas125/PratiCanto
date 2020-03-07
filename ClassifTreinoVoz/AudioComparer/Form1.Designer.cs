@@ -120,8 +120,6 @@
             this.toolMain = new System.Windows.Forms.ToolStrip();
             this.btnClient = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnVoiceTraining = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnZoomIn = new System.Windows.Forms.ToolStripButton();
             this.btnZoomOut = new System.Windows.Forms.ToolStripButton();
             this.btnComputeF0formants = new System.Windows.Forms.ToolStripButton();
@@ -794,8 +792,6 @@
             this.toolMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnClient,
             this.toolStripSeparator3,
-            this.btnVoiceTraining,
-            this.toolStripSeparator6,
             this.btnZoomIn,
             this.btnZoomOut,
             this.btnComputeF0formants,
@@ -830,18 +826,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-            // 
-            // btnVoiceTraining
-            // 
-            resources.ApplyResources(this.btnVoiceTraining, "btnVoiceTraining");
-            this.btnVoiceTraining.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnVoiceTraining.Name = "btnVoiceTraining";
-            this.btnVoiceTraining.Click += new System.EventHandler(this.btnVoiceTraining_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
             // 
             // btnZoomIn
             // 
@@ -1259,8 +1243,6 @@
         private System.Windows.Forms.ToolStripMenuItem audioAnnotationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem regionAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton btnVoiceTraining;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem formantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton btnPhoneticSymbols;
         private System.Windows.Forms.ToolStripMenuItem s1ToolStripMenuItem;
