@@ -1,6 +1,16 @@
 # PratiCanto
 Voice analysis and vocal training
 
+![PratiCanto](/image_assets/praticantoLarge.PNG)
+
+## What is PratiCanto?
+
+PratiCanto is a voice analysis and training tool developed for speech professionals. The software is split into easy to use specific modules and general modules that provide extensive tools for analysis and training.
+
+PratiCanto helps amateurs and professionals to perfect and analyze spoken voice, singing voice and other aspects related to speech.
+
+Note that PratiCanto does not perform clinical diagnosis; it is a tool designed to help professionals.
+
 ## How can I download and use PratiCanto?
 
 Download the latest release from our Github. If PratiCanto helps your research, please [cite us](#citeus).
@@ -11,19 +21,30 @@ Yes, it is free and open source.
 
 As of 2021, in view of the Covid19 pandemic, Prof. Dr. Domingos Sávio de Ferreira de Oliveira and myself (Douglas Coimbra de Andrade) have decided to open PratiCanto's source under a permissive license to enable speech professionals to work remotely with their clients and foster speech research in general.
 
-# What is PratiCanto?
+## What is in PratiCanto?
 
-PratiCanto is a voice analysis and training tool developed for speech professionals. The software is split into easy to use specific modules and general modules that provide extensive tools for analysis and training.
-
-PratiCanto helps amateurs and professionals to perfect and analyze spoken voice, singing voice and other aspects related to speech.
-
-Note that PratiCanto does not perform clinical diagnosis; it is a tool designed to help professionals.
+![PratiCanto Intro Screen](/image_assets/PraticantoScreen.PNG)
 
 ### General modules
 
 **Vocal Trainer**: allows singing and spoken language practice. The available tools allow checking for correct singing (in tune), rythm and checking voice parameters using vocalization, MIDI files or audio/video playback.
 
+Main features:
+
+- Intensity and pitch training
+- Sing with playback of audio or video
+- Use MIDI files with lyrics to practice singing
+
 **Voice Analysis**: aids professionals to perform detailed voice analysis using real time and post-processed spectrogram, side by side comparison, filtering and other advanced tools.
+
+Main features:
+
+- Accurate spectrogram, fundamental frequency and formants computation
+- Analyze audio and video files
+- Analyze audio files side by side
+- Phonetic symbols for audio annotation to save/load with audio files
+- Real-time spectrogram
+- AI tools for automatic speech tasks
 
 **Melody Creator**: easy to use tool to create exercises that can be used in the Vocal Trainer and Voice Extension modules.
 
