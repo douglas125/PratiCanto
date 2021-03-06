@@ -1479,6 +1479,7 @@ namespace AudioComparer
             catch
             {
                 //silently fail, user does not need to know this is happening
+                loadModelToolStripMenuItem.Visible = false;
             }
         }
 

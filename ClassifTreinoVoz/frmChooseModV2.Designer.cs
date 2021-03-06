@@ -122,7 +122,7 @@
             this.picYoutube.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picYoutube.Name = "picYoutube";
             this.picYoutube.TabStop = false;
-            this.picYoutube.Click += new System.EventHandler(this.picYoutube_Click);
+            this.picYoutube.Click += new System.EventHandler(this.picGithub_click);
             // 
             // lblYoutube
             // 

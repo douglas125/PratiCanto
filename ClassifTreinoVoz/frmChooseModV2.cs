@@ -255,9 +255,9 @@ namespace ClassifTreinoVoz
 
 
         #region Links
-        private void picYoutube_Click(object sender, EventArgs e)
+        private void picGithub_click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.youtube.com/channel/UC5X8wCaVrjANG_6gmh14aqQ");
+            System.Diagnostics.Process.Start("https://github.com/douglas125/PratiCanto");
         }
         private void lblYoutube_Click(object sender, EventArgs e)
         {
