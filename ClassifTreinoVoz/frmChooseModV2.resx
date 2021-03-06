@@ -4459,6 +4459,9 @@
   <data name="btnSaveInfoLic.Text" xml:space="preserve">
     <value>Insert License...</value>
   </data>
+  <data name="btnSaveInfoLic.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;btnSaveInfoLic.Name" xml:space="preserve">
     <value>btnSaveInfoLic</value>
   </data>

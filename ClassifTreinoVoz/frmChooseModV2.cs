@@ -122,13 +122,13 @@ namespace ClassifTreinoVoz
             {
                 MelodyCreator = true; // AudioComparer.SoftwareKey.CheckLicense("MelodyCreator", true);
                 VoiceAnalysis = true; // AudioComparer.SoftwareKey.CheckLicense("VoiceAnalysis", true);
-                VoiceExtension = AudioComparer.SoftwareKey.CheckLicense("VoiceExtension", true);
-                VocalTrainer = AudioComparer.SoftwareKey.CheckLicense("VocalTrainer", true);
-                SustainedVowel = AudioComparer.SoftwareKey.CheckLicense("SustainedVowel", true);
-                SpeechToText = AudioComparer.SoftwareKey.CheckLicense("SpeechToText", true);
-                Intonation = AudioComparer.SoftwareKey.CheckLicense("Intonation", true);
-                Composer = AudioComparer.SoftwareKey.CheckLicense("Composer", true);
-                Inspector = AudioComparer.SoftwareKey.CheckLicense("Inspector", true);
+                VoiceExtension = true; // AudioComparer.SoftwareKey.CheckLicense("VoiceExtension", true);
+                VocalTrainer = true; // AudioComparer.SoftwareKey.CheckLicense("VocalTrainer", true);
+                SustainedVowel = true; // AudioComparer.SoftwareKey.CheckLicense("SustainedVowel", true);
+                SpeechToText = true; // AudioComparer.SoftwareKey.CheckLicense("SpeechToText", true);
+                Intonation = true; // AudioComparer.SoftwareKey.CheckLicense("Intonation", true);
+                Composer = true; // AudioComparer.SoftwareKey.CheckLicense("Composer", true);
+                Inspector = true; // AudioComparer.SoftwareKey.CheckLicense("Inspector", true);
 
             }
             public static bool VoiceExtension = false;

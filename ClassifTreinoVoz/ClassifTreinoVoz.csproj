@@ -499,6 +499,12 @@
     </Content>
     <None Include="app.config" />
     <None Include="ClassifTreinoVoz_TemporaryKey.pfx" />
+    <None Include="DLModels\attRNN.pb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DLModels\attRNN.pb.classes">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Misc\free singing.mld" />
     <None Include="Misc\Polihymnia.ttf" />
     <None Include="packages.config" />
