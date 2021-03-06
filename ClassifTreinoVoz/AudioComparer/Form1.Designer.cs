@@ -106,6 +106,10 @@
             this.spectrogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medianToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autolearnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spotKeywordInSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.spotkeywordsInAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
             this.learnFromThisFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.learnFromFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.classifySelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,8 +120,6 @@
             this.toolMain = new System.Windows.Forms.ToolStrip();
             this.btnClient = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnVoiceTraining = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.btnZoomIn = new System.Windows.Forms.ToolStripButton();
             this.btnZoomOut = new System.Windows.Forms.ToolStripButton();
             this.btnComputeF0formants = new System.Windows.Forms.ToolStripButton();
@@ -179,6 +181,7 @@
             // 
             // menuMain
             // 
+            this.menuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.viewToolStripMenuItem,
@@ -705,6 +708,10 @@
             // autolearnToolStripMenuItem
             // 
             this.autolearnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loadModelToolStripMenuItem,
+            this.spotKeywordInSelectionToolStripMenuItem,
+            this.spotkeywordsInAudioToolStripMenuItem,
+            this.toolStripMenuItem19,
             this.learnFromThisFileToolStripMenuItem,
             this.learnFromFolderToolStripMenuItem,
             this.classifySelectionToolStripMenuItem,
@@ -712,6 +719,29 @@
             this.phoneticSearchToolStripMenuItem});
             this.autolearnToolStripMenuItem.Name = "autolearnToolStripMenuItem";
             resources.ApplyResources(this.autolearnToolStripMenuItem, "autolearnToolStripMenuItem");
+            // 
+            // loadModelToolStripMenuItem
+            // 
+            this.loadModelToolStripMenuItem.Name = "loadModelToolStripMenuItem";
+            resources.ApplyResources(this.loadModelToolStripMenuItem, "loadModelToolStripMenuItem");
+            this.loadModelToolStripMenuItem.Click += new System.EventHandler(this.loadModelToolStripMenuItem_Click);
+            // 
+            // spotKeywordInSelectionToolStripMenuItem
+            // 
+            resources.ApplyResources(this.spotKeywordInSelectionToolStripMenuItem, "spotKeywordInSelectionToolStripMenuItem");
+            this.spotKeywordInSelectionToolStripMenuItem.Name = "spotKeywordInSelectionToolStripMenuItem";
+            this.spotKeywordInSelectionToolStripMenuItem.Click += new System.EventHandler(this.SpotKeywordInSelectionToolStripMenuItem_Click);
+            // 
+            // spotkeywordsInAudioToolStripMenuItem
+            // 
+            resources.ApplyResources(this.spotkeywordsInAudioToolStripMenuItem, "spotkeywordsInAudioToolStripMenuItem");
+            this.spotkeywordsInAudioToolStripMenuItem.Name = "spotkeywordsInAudioToolStripMenuItem";
+            this.spotkeywordsInAudioToolStripMenuItem.Click += new System.EventHandler(this.SpotkeywordsInAudioToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem19
+            // 
+            this.toolStripMenuItem19.Name = "toolStripMenuItem19";
+            resources.ApplyResources(this.toolStripMenuItem19, "toolStripMenuItem19");
             // 
             // learnFromThisFileToolStripMenuItem
             // 
@@ -758,11 +788,10 @@
             // 
             // toolMain
             // 
+            this.toolMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnClient,
             this.toolStripSeparator3,
-            this.btnVoiceTraining,
-            this.toolStripSeparator6,
             this.btnZoomIn,
             this.btnZoomOut,
             this.btnComputeF0formants,
@@ -797,18 +826,6 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-            // 
-            // btnVoiceTraining
-            // 
-            resources.ApplyResources(this.btnVoiceTraining, "btnVoiceTraining");
-            this.btnVoiceTraining.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnVoiceTraining.Name = "btnVoiceTraining";
-            this.btnVoiceTraining.Click += new System.EventHandler(this.btnVoiceTraining_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
             // 
             // btnZoomIn
             // 
@@ -940,8 +957,8 @@
             // 
             // txtReplaySpeed
             // 
-            this.txtReplaySpeed.Name = "txtReplaySpeed";
             resources.ApplyResources(this.txtReplaySpeed, "txtReplaySpeed");
+            this.txtReplaySpeed.Name = "txtReplaySpeed";
             this.txtReplaySpeed.Leave += new System.EventHandler(this.txtReplaySpeed_Leave);
             // 
             // toolStripSeparator4
@@ -1226,8 +1243,6 @@
         private System.Windows.Forms.ToolStripMenuItem audioAnnotationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem7;
         private System.Windows.Forms.ToolStripMenuItem regionAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton btnVoiceTraining;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem formantsToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton btnPhoneticSymbols;
         private System.Windows.Forms.ToolStripMenuItem s1ToolStripMenuItem;
@@ -1289,6 +1304,10 @@
         private System.Windows.Forms.ToolStripMenuItem medianToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem convertWAVToMP3ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertAtStartOfSelectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadModelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem19;
+        private System.Windows.Forms.ToolStripMenuItem spotKeywordInSelectionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem spotkeywordsInAudioToolStripMenuItem;
     }
 }
 
