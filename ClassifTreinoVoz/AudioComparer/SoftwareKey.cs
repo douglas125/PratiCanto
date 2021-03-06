@@ -41,6 +41,12 @@ namespace AudioComparer
         /// <returns></returns>
         public static bool CheckLicense(string header, bool silent)
         {
+            return true;
+        }
+
+        /// <summary>Before open sourcing, this is how licenses would be checked.</summary>
+        bool oldCheckLicense(string header, bool silent)
+        { 
             //check license
             bool validLicense = false;
             string licfilename = "info.hnflic";
