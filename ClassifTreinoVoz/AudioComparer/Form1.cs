@@ -1519,6 +1519,16 @@ namespace AudioComparer
             return maxIdx;
         }
 
+        private void oNNXKeyworkSpotterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string onnxmodel = Application.StartupPath + "\\DLModels\\dummy_model.onnx";
+            bool exists = File.Exists(onnxmodel);
+            if (exists)
+            {
+                ONNXKeywordSpotting oni = new ONNXKeywordSpotting(onnxmodel);
+            }
+        }
+
         private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // no graph

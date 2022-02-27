@@ -168,6 +168,8 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
+            this.experimentalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oNNXKeyworkSpotterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -188,6 +190,7 @@
             this.editToolStripMenuItem,
             this.filterToolStripMenuItem,
             this.autolearnToolStripMenuItem,
+            this.experimentalToolStripMenuItem,
             this.helpToolStripMenuItem});
             resources.ApplyResources(this.menuMain, "menuMain");
             this.menuMain.Name = "menuMain";
@@ -1137,6 +1140,19 @@
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
             // 
+            // experimentalToolStripMenuItem
+            // 
+            this.experimentalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oNNXKeyworkSpotterToolStripMenuItem});
+            this.experimentalToolStripMenuItem.Name = "experimentalToolStripMenuItem";
+            resources.ApplyResources(this.experimentalToolStripMenuItem, "experimentalToolStripMenuItem");
+            // 
+            // oNNXKeyworkSpotterToolStripMenuItem
+            // 
+            this.oNNXKeyworkSpotterToolStripMenuItem.Name = "oNNXKeyworkSpotterToolStripMenuItem";
+            resources.ApplyResources(this.oNNXKeyworkSpotterToolStripMenuItem, "oNNXKeyworkSpotterToolStripMenuItem");
+            this.oNNXKeyworkSpotterToolStripMenuItem.Click += new System.EventHandler(this.oNNXKeyworkSpotterToolStripMenuItem_Click);
+            // 
             // frmAudioComparer
             // 
             resources.ApplyResources(this, "$this");
@@ -1308,6 +1324,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem19;
         private System.Windows.Forms.ToolStripMenuItem spotKeywordInSelectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spotkeywordsInAudioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem experimentalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oNNXKeyworkSpotterToolStripMenuItem;
     }
 }
 
