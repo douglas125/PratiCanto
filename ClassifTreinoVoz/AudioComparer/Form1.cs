@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Net;
 using System.Windows.Forms;
 
 using NAudio.Wave;
@@ -1517,6 +1518,149 @@ namespace AudioComparer
                 }
             }
             return maxIdx;
+        }
+
+        /// <summary>Sets up Montreal Forced Aligner env</summary>
+        bool setup_mfa()
+        {
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string praticantoFolder = Application.StartupPath;
+            string miniconda_path = "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe";
+            string miniconda_script = Path.Combine(userFolder, "miniconda3", "Scripts", "activate.bat");
+            if (!File.Exists(miniconda_script))
+            {
+                bool install_miniconda3 = MessageBox.Show(
+                    "PratiCando needs to download miniconda3. Download and install now? Follow instructions to install",
+                    "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                    ) == DialogResult.Yes;
+                if (install_miniconda3)
+                {
+                    // Needs to install miniconda
+                    WebClient wc = new WebClient();
+                    string miniconda3_installer = Path.Combine(praticantoFolder, "miniconda3-x64.exe");
+                    wc.DownloadFile(miniconda_path, Path.Combine(praticantoFolder, "miniconda3-x64.exe"));
+                    System.Diagnostics.Process.Start(miniconda3_installer);
+                }
+            }
+            if (File.Exists(miniconda_script))
+            {
+                System.IO.Directory.CreateDirectory(Path.Combine(praticantoFolder, "MFA"));
+                string mfa_env_folder = Path.Combine(praticantoFolder, "MFA", "MFA_env");
+                if (!File.Exists(Path.Combine(mfa_env_folder, "Scripts", "mfa.exe")))
+                {
+                    bool install_mfa = MessageBox.Show(
+                            "PratiCando needs to download Montreal Forced Aligner. Download and install now? This can take a while",
+                            "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                            ) == DialogResult.Yes;
+                    if (install_mfa)
+                    {
+                        // Need to create MFA env
+                        string env_cmd = "conda create -y --prefix PATH -c conda-forge montreal-forced-aligner".Replace("PATH", mfa_env_folder);
+                        var process = new System.Diagnostics.Process
+                        {
+                            StartInfo = new System.Diagnostics.ProcessStartInfo
+                            {
+                                FileName = "cmd.exe",
+                                RedirectStandardInput = true,
+                                UseShellExecute = false,
+                                RedirectStandardOutput = false,
+                                WorkingDirectory = praticantoFolder
+                            }
+                        };
+                        process.Start();
+                        // Pass multiple commands to cmd.exe
+                        using (var sw = process.StandardInput)
+                        {
+                            if (sw.BaseStream.CanWrite)
+                            {
+                                // Vital to activate Anaconda
+                                sw.WriteLine(miniconda_script);
+                                // Activate your environment
+                                sw.WriteLine(env_cmd);
+                            }
+                        }
+                        process.WaitForExit();
+
+                        /*
+                        List<string> outputs = new List<string>();
+                        // read multiple output lines
+                        while (!process.StandardOutput.EndOfStream)
+                        {
+                            var line = process.StandardOutput.ReadLine();
+                            outputs.Append(line);
+                        }
+                        */
+                    }
+                }
+                if (!File.Exists(Path.Combine(mfa_env_folder, "Scripts", "mfa.exe")))
+                {
+                    MessageBox.Show("Montreal Forced Aligner env not found", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Miniconda3 not found", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        void DoAlignment(string acoustic_model, string dictionary, string acoustic_url, string dictionary_url)
+        {
+            if (!File.Exists(acoustic_model) || !File.Exists(dictionary))
+            {
+                bool download_models = MessageBox.Show(
+                        "PratiCando needs to download required dictionaries and acoustic models. Download now? This can take a while",
+                        "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                        ) == DialogResult.Yes;
+                if (download_models)
+                {
+                    WebClient wc = new WebClient();
+                    if (!File.Exists(acoustic_model)) wc.DownloadFile(acoustic_url, acoustic_model);
+                    if (!File.Exists(dictionary)) wc.DownloadFile(dictionary_url, dictionary);
+                }
+            }
+            if (File.Exists(acoustic_model) && File.Exists(dictionary))
+            {
+                Directory.CreateDirectory(Path.Combine(Application.StartupPath, "MFA"));
+                string mfa_files_path = Path.Combine(Application.StartupPath, "MFA", "tempfiles");
+                Directory.CreateDirectory(mfa_files_path);
+
+                string transcript = txtAnnotation.Text;
+                string parsedstr = "";
+                parsedstr = new string(transcript.Where(c => !char.IsPunctuation(c)).ToArray()).ToLower();
+                parsedstr = System.Text.RegularExpressions.Regex.Replace(parsedstr, @"[\d-]", string.Empty);
+                parsedstr = System.Text.RegularExpressions.Regex.Replace(parsedstr, @"\s+", " ");
+                if (transcript != parsedstr)
+                {
+                    MessageBox.Show("Include accents but do not use punctuation or numbers in the text", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtAnnotation.Text = parsedstr;
+                }
+                else
+                {
+                    bool do_align = MessageBox.Show(
+                            "Align current audio with text: " + transcript,
+                            "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                            ) == DialogResult.Yes;
+                    if (do_align)
+                    {
+                        // TODO
+                    }
+                }
+            }
+            else MessageBox.Show("Acoustic model or dictionary not found", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        private void brazilianPortugueseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (setup_mfa())
+            {
+                string acoustic_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-portuguese_mfa-v2.0.0/portuguese_mfa.zip";
+                string dictionary_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-portuguese_brazil_mfa-v2.0.0/portuguese_brazil_mfa.dict";
+                string acoustic_model = Path.Combine(Application.StartupPath, "MFA", "portuguese_mfa.zip");
+                string dictionary = Path.Combine(Application.StartupPath, "MFA", "portuguese_brazil_mfa.dict");
+                DoAlignment(acoustic_model, dictionary, acoustic_url, dictionary_url);
+            }
         }
 
         private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)

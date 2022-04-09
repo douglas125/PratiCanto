@@ -106,6 +106,8 @@
             this.spectrogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medianToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autolearnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forcedAlignmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripSeparator();
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spotKeywordInSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spotkeywordsInAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -168,6 +170,8 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
+            this.brazilianPortugueseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -708,6 +712,8 @@
             // autolearnToolStripMenuItem
             // 
             this.autolearnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.forcedAlignmentToolStripMenuItem,
+            this.toolStripMenuItem20,
             this.loadModelToolStripMenuItem,
             this.spotKeywordInSelectionToolStripMenuItem,
             this.spotkeywordsInAudioToolStripMenuItem,
@@ -719,6 +725,19 @@
             this.phoneticSearchToolStripMenuItem});
             this.autolearnToolStripMenuItem.Name = "autolearnToolStripMenuItem";
             resources.ApplyResources(this.autolearnToolStripMenuItem, "autolearnToolStripMenuItem");
+            // 
+            // forcedAlignmentToolStripMenuItem
+            // 
+            this.forcedAlignmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.brazilianPortugueseToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.forcedAlignmentToolStripMenuItem.Name = "forcedAlignmentToolStripMenuItem";
+            resources.ApplyResources(this.forcedAlignmentToolStripMenuItem, "forcedAlignmentToolStripMenuItem");
+            // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            resources.ApplyResources(this.toolStripMenuItem20, "toolStripMenuItem20");
             // 
             // loadModelToolStripMenuItem
             // 
@@ -1137,6 +1156,17 @@
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
             // 
+            // brazilianPortugueseToolStripMenuItem
+            // 
+            this.brazilianPortugueseToolStripMenuItem.Name = "brazilianPortugueseToolStripMenuItem";
+            resources.ApplyResources(this.brazilianPortugueseToolStripMenuItem, "brazilianPortugueseToolStripMenuItem");
+            this.brazilianPortugueseToolStripMenuItem.Click += new System.EventHandler(this.brazilianPortugueseToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+            // 
             // frmAudioComparer
             // 
             resources.ApplyResources(this, "$this");
@@ -1308,6 +1338,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem19;
         private System.Windows.Forms.ToolStripMenuItem spotKeywordInSelectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spotkeywordsInAudioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forcedAlignmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem20;
+        private System.Windows.Forms.ToolStripMenuItem brazilianPortugueseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
     }
 }
 
