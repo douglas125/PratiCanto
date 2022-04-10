@@ -121,266 +121,11 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Save</value>
-  </data>
-  <data name="saveSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="saveSelectionToolStripMenuItem.Text" xml:space="preserve">
-    <value>S&amp;ave selection</value>
-  </data>
-  <data name="insertAtStartOfSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="insertAtStartOfSelectionToolStripMenuItem.Text" xml:space="preserve">
-    <value>Insert at start of selection...</value>
-  </data>
-  <data name="convertWAVToMP3ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="convertWAVToMP3ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Convert WAV to MP3...</value>
-  </data>
-  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 6</value>
-  </data>
-  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="openToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Open...</value>
-  </data>
-  <data name="openVideoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="openVideoToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Open video...</value>
-  </data>
-  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 6</value>
-  </data>
-  <data name="compareToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="compareToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Compare...</value>
-  </data>
-  <data name="stopComparingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="stopComparingToolStripMenuItem.Text" xml:space="preserve">
-    <value>Stop comparing</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 6</value>
-  </data>
-  <data name="saveToImageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="saveToImageToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Save spectre to image...</value>
-  </data>
-  <data name="toolStripMenuItem18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 6</value>
-  </data>
-  <data name="quitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 22</value>
-  </data>
-  <data name="quitToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Quit</value>
-  </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
   <data name="fileToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;File</value>
-  </data>
-  <data name="monochromaticToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="monochromaticToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Monochromatic</value>
-  </data>
-  <data name="inColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="inColorToolStripMenuItem.Text" xml:space="preserve">
-    <value>In &amp;color</value>
-  </data>
-  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 6</value>
-  </data>
-  <data name="increaseSpectreHeightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="increaseSpectreHeightToolStripMenuItem.Text" xml:space="preserve">
-    <value>Increase spectre height</value>
-  </data>
-  <data name="reduceSpectreHeightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="reduceSpectreHeightToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reset spectre height</value>
-  </data>
-  <data name="toolStripMenuItem16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 6</value>
-  </data>
-  <data name="highlightHarmonicsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>195, 22</value>
-  </data>
-  <data name="highlightHarmonicsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Highlight harmonics</value>
-  </data>
-  <data name="spectreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="spectreToolStripMenuItem.Text" xml:space="preserve">
-    <value>Spectrogram</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
-  </data>
-  <data name="fundamentalFrequencyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="fundamentalFrequencyToolStripMenuItem.Text" xml:space="preserve">
-    <value>Fundamental frequency</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp1.Text" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp2.Text" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp3.Text" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 22</value>
-  </data>
-  <data name="toolStripMenuItemF0Amp4.Text" xml:space="preserve">
-    <value>30</value>
-  </data>
-  <data name="f0AmplificationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="f0AmplificationToolStripMenuItem.Text" xml:space="preserve">
-    <value>F0 &amp;amplification</value>
-  </data>
-  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
-  </data>
-  <data name="intensityToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="intensityToolStripMenuItem.Text" xml:space="preserve">
-    <value>Intensity</value>
-  </data>
-  <data name="toolStripMenuItemRIntens0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
-  </data>
-  <data name="toolStripMenuItemRIntens0.Text" xml:space="preserve">
-    <value>50</value>
-  </data>
-  <data name="toolStripMenuItemRIntens1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
-  </data>
-  <data name="toolStripMenuItemRIntens1.Text" xml:space="preserve">
-    <value>100</value>
-  </data>
-  <data name="toolStripMenuItemRIntens2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
-  </data>
-  <data name="toolStripMenuItemRIntens2.Text" xml:space="preserve">
-    <value>200</value>
-  </data>
-  <data name="toolStripMenuItemRIntens3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>92, 22</value>
-  </data>
-  <data name="toolStripMenuItemRIntens3.Text" xml:space="preserve">
-    <value>400</value>
-  </data>
-  <data name="maximumRelativeIntensitydBrToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="maximumRelativeIntensitydBrToolStripMenuItem.Text" xml:space="preserve">
-    <value>Maximum relative intensity (dBr)</value>
-  </data>
-  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
-  </data>
-  <data name="formantsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="formantsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Formants</value>
-  </data>
-  <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 22</value>
-  </data>
-  <data name="toolStripMenuItem10.Text" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 22</value>
-  </data>
-  <data name="toolStripMenuItem11.Text" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 22</value>
-  </data>
-  <data name="toolStripMenuItem12.Text" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 22</value>
-  </data>
-  <data name="toolStripMenuItem13.Text" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 22</value>
-  </data>
-  <data name="toolStripMenuItem14.Text" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="numberOfFormantsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="numberOfFormantsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Number of formants...</value>
-  </data>
-  <data name="toolStripMenuItem17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
-  </data>
-  <data name="harmonictonoiseRatioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="harmonictonoiseRatioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Harmonic-to-noise ratio</value>
-  </data>
-  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 6</value>
-  </data>
-  <data name="regionAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 22</value>
-  </data>
-  <data name="regionAnalysisToolStripMenuItem.Text" xml:space="preserve">
-    <value>Region analysis...</value>
   </data>
   <data name="viewToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
@@ -388,144 +133,11 @@
   <data name="viewToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;View</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="baseFrequencyAndFormantsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+F</value>
-  </data>
-  <data name="baseFrequencyAndFormantsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 22</value>
-  </data>
-  <data name="baseFrequencyAndFormantsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Base frequency and formants</value>
-  </data>
-  <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 6</value>
-  </data>
-  <data name="audioAnnotationsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 22</value>
-  </data>
-  <data name="audioAnnotationsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Clear audio annotations</value>
-  </data>
-  <data name="deleteSelectionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+Del</value>
-  </data>
-  <data name="deleteSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 22</value>
-  </data>
-  <data name="deleteSelectionToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Delete selection</value>
-  </data>
-  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 6</value>
-  </data>
-  <data name="increaseToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+Up</value>
-  </data>
-  <data name="increaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
-  </data>
-  <data name="increaseToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Increase</value>
-  </data>
-  <data name="decreaseToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+Down</value>
-  </data>
-  <data name="decreaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>186, 22</value>
-  </data>
-  <data name="decreaseToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Decrease</value>
-  </data>
-  <data name="amplifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 22</value>
-  </data>
-  <data name="amplifyToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Change volume</value>
-  </data>
   <data name="editToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 20</value>
   </data>
   <data name="editToolStripMenuItem.Text" xml:space="preserve">
     <value>Edit</value>
-  </data>
-  <data name="menuAvg1ms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="menuAvg1ms.Text" xml:space="preserve">
-    <value>0.1 ms</value>
-  </data>
-  <data name="menuAvg10ms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="menuAvg10ms.Text" xml:space="preserve">
-    <value>0.5 ms</value>
-  </data>
-  <data name="menuAvg25ms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="menuAvg25ms.Text" xml:space="preserve">
-    <value>1 ms</value>
-  </data>
-  <data name="menuAvg50ms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="menuAvg50ms.Text" xml:space="preserve">
-    <value>5 ms</value>
-  </data>
-  <data name="averageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
-  </data>
-  <data name="averageToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Average</value>
-  </data>
-  <data name="msToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="msToolStripMenuItem.Text" xml:space="preserve">
-    <value>0.1 ms</value>
-  </data>
-  <data name="msToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="msToolStripMenuItem1.Text" xml:space="preserve">
-    <value>0.5 ms</value>
-  </data>
-  <data name="msToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="msToolStripMenuItem2.Text" xml:space="preserve">
-    <value>1 ms</value>
-  </data>
-  <data name="msToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="msToolStripMenuItem3.Text" xml:space="preserve">
-    <value>1.5 ms</value>
-  </data>
-  <data name="medianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
-  </data>
-  <data name="medianToolStripMenuItem.Text" xml:space="preserve">
-    <value>Median</value>
-  </data>
-  <data name="exportWaveformToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
-  </data>
-  <data name="exportWaveformToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;Export waveform...</value>
-  </data>
-  <data name="medianToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="medianToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Median</value>
-  </data>
-  <data name="spectrogramToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
-  </data>
-  <data name="spectrogramToolStripMenuItem.Text" xml:space="preserve">
-    <value>Spectrogram</value>
   </data>
   <data name="filterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -603,6 +215,7 @@
   <data name="learnFromFolderToolStripMenuItem.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="classifySelectionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+Q</value>
   </data>
@@ -639,12 +252,6 @@
   <data name="autolearnToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;AI</value>
   </data>
-  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 22</value>
-  </data>
-  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
-    <value>&amp;About...</value>
-  </data>
   <data name="helpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>44, 20</value>
   </data>
@@ -678,9 +285,429 @@
   <data name="&gt;&gt;menuMain.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="saveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="saveToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="saveSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="saveSelectionToolStripMenuItem.Text" xml:space="preserve">
+    <value>S&amp;ave selection</value>
+  </data>
+  <data name="insertAtStartOfSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="insertAtStartOfSelectionToolStripMenuItem.Text" xml:space="preserve">
+    <value>Insert at start of selection...</value>
+  </data>
+  <data name="convertWAVToMP3ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="convertWAVToMP3ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Convert WAV to MP3...</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 6</value>
+  </data>
+  <data name="openToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="openToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Open...</value>
+  </data>
+  <data name="openVideoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="openVideoToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Open video...</value>
+  </data>
+  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 6</value>
+  </data>
+  <data name="compareToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="compareToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Compare...</value>
+  </data>
+  <data name="stopComparingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="stopComparingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Stop comparing</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 6</value>
+  </data>
+  <data name="saveToImageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="saveToImageToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Save spectre to image...</value>
+  </data>
+  <data name="toolStripMenuItem18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>212, 6</value>
+  </data>
+  <data name="quitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 22</value>
+  </data>
+  <data name="quitToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Quit</value>
+  </data>
+  <data name="spectreToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="spectreToolStripMenuItem.Text" xml:space="preserve">
+    <value>Spectrogram</value>
+  </data>
+  <data name="monochromaticToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 22</value>
+  </data>
+  <data name="monochromaticToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Monochromatic</value>
+  </data>
+  <data name="inColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 22</value>
+  </data>
+  <data name="inColorToolStripMenuItem.Text" xml:space="preserve">
+    <value>In &amp;color</value>
+  </data>
+  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 6</value>
+  </data>
+  <data name="increaseSpectreHeightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 22</value>
+  </data>
+  <data name="increaseSpectreHeightToolStripMenuItem.Text" xml:space="preserve">
+    <value>Increase spectre height</value>
+  </data>
+  <data name="reduceSpectreHeightToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 22</value>
+  </data>
+  <data name="reduceSpectreHeightToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reset spectre height</value>
+  </data>
+  <data name="toolStripMenuItem16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 6</value>
+  </data>
+  <data name="highlightHarmonicsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 22</value>
+  </data>
+  <data name="highlightHarmonicsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Highlight harmonics</value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="fundamentalFrequencyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="fundamentalFrequencyToolStripMenuItem.Text" xml:space="preserve">
+    <value>Fundamental frequency</value>
+  </data>
+  <data name="f0AmplificationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="f0AmplificationToolStripMenuItem.Text" xml:space="preserve">
+    <value>F0 &amp;amplification</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 22</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp1.Text" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 22</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp2.Text" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 22</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp3.Text" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 22</value>
+  </data>
+  <data name="toolStripMenuItemF0Amp4.Text" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="intensityToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="intensityToolStripMenuItem.Text" xml:space="preserve">
+    <value>Intensity</value>
+  </data>
+  <data name="maximumRelativeIntensitydBrToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="maximumRelativeIntensitydBrToolStripMenuItem.Text" xml:space="preserve">
+    <value>Maximum relative intensity (dBr)</value>
+  </data>
+  <data name="toolStripMenuItemRIntens0.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="toolStripMenuItemRIntens0.Text" xml:space="preserve">
+    <value>50</value>
+  </data>
+  <data name="toolStripMenuItemRIntens1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="toolStripMenuItemRIntens1.Text" xml:space="preserve">
+    <value>100</value>
+  </data>
+  <data name="toolStripMenuItemRIntens2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="toolStripMenuItemRIntens2.Text" xml:space="preserve">
+    <value>200</value>
+  </data>
+  <data name="toolStripMenuItemRIntens3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 22</value>
+  </data>
+  <data name="toolStripMenuItemRIntens3.Text" xml:space="preserve">
+    <value>400</value>
+  </data>
+  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="formantsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="formantsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Formants</value>
+  </data>
+  <data name="numberOfFormantsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="numberOfFormantsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Number of formants...</value>
+  </data>
+  <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="toolStripMenuItem10.Text" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="toolStripMenuItem11.Text" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="toolStripMenuItem12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="toolStripMenuItem12.Text" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="toolStripMenuItem13.Text" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 22</value>
+  </data>
+  <data name="toolStripMenuItem14.Text" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="toolStripMenuItem17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="harmonictonoiseRatioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="harmonictonoiseRatioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Harmonic-to-noise ratio</value>
+  </data>
+  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 6</value>
+  </data>
+  <data name="regionAnalysisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 22</value>
+  </data>
+  <data name="regionAnalysisToolStripMenuItem.Text" xml:space="preserve">
+    <value>Region analysis...</value>
+  </data>
+  <data name="baseFrequencyAndFormantsToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+F</value>
+  </data>
+  <data name="baseFrequencyAndFormantsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 22</value>
+  </data>
+  <data name="baseFrequencyAndFormantsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Base frequency and formants</value>
+  </data>
+  <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 6</value>
+  </data>
+  <data name="audioAnnotationsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 22</value>
+  </data>
+  <data name="audioAnnotationsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Clear audio annotations</value>
+  </data>
+  <data name="deleteSelectionToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Del</value>
+  </data>
+  <data name="deleteSelectionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 22</value>
+  </data>
+  <data name="deleteSelectionToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Delete selection</value>
+  </data>
+  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>265, 6</value>
+  </data>
+  <data name="amplifyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>268, 22</value>
+  </data>
+  <data name="amplifyToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Change volume</value>
+  </data>
+  <data name="increaseToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Up</value>
+  </data>
+  <data name="increaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 22</value>
+  </data>
+  <data name="increaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Increase</value>
+  </data>
+  <data name="decreaseToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+Down</value>
+  </data>
+  <data name="decreaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 22</value>
+  </data>
+  <data name="decreaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Decrease</value>
+  </data>
+  <data name="averageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="averageToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Average</value>
+  </data>
+  <data name="menuAvg1ms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="menuAvg1ms.Text" xml:space="preserve">
+    <value>0.1 ms</value>
+  </data>
+  <data name="menuAvg10ms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="menuAvg10ms.Text" xml:space="preserve">
+    <value>0.5 ms</value>
+  </data>
+  <data name="menuAvg25ms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="menuAvg25ms.Text" xml:space="preserve">
+    <value>1 ms</value>
+  </data>
+  <data name="menuAvg50ms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="menuAvg50ms.Text" xml:space="preserve">
+    <value>5 ms</value>
+  </data>
+  <data name="medianToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="medianToolStripMenuItem.Text" xml:space="preserve">
+    <value>Median</value>
+  </data>
+  <data name="msToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="msToolStripMenuItem.Text" xml:space="preserve">
+    <value>0.1 ms</value>
+  </data>
+  <data name="msToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="msToolStripMenuItem1.Text" xml:space="preserve">
+    <value>0.5 ms</value>
+  </data>
+  <data name="msToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="msToolStripMenuItem2.Text" xml:space="preserve">
+    <value>1 ms</value>
+  </data>
+  <data name="msToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="msToolStripMenuItem3.Text" xml:space="preserve">
+    <value>1.5 ms</value>
+  </data>
+  <data name="exportWaveformToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="exportWaveformToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;Export waveform...</value>
+  </data>
+  <data name="spectrogramToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>173, 22</value>
+  </data>
+  <data name="spectrogramToolStripMenuItem.Text" xml:space="preserve">
+    <value>Spectrogram</value>
+  </data>
+  <data name="medianToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="medianToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Median</value>
+  </data>
+  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 22</value>
+  </data>
+  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>&amp;About...</value>
+  </data>
   <metadata name="toolMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
+  <data name="toolMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="toolMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 2, 0</value>
+  </data>
+  <data name="toolMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1160, 39</value>
+  </data>
+  <data name="toolMain.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="toolMain.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolMain.Name" xml:space="preserve">
+    <value>toolMain</value>
+  </data>
+  <data name="&gt;&gt;toolMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolMain.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="btnClient.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -996,6 +1023,39 @@
   <data name="txtAnnotation.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="btnPhoneticSymbols.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 18pt</value>
+  </data>
+  <data name="btnPhoneticSymbols.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
+        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
+        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
+        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
+        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
+        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
+        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
+        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
+        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
+        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnPhoneticSymbols.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="btnPhoneticSymbols.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 36</value>
+  </data>
+  <data name="btnPhoneticSymbols.Text" xml:space="preserve">
+    <value>dʒ</value>
+  </data>
+  <data name="btnPhoneticSymbols.ToolTipText" xml:space="preserve">
+    <value>Insert phonetic symbol in comment</value>
+  </data>
+  <data name="btnPhoneticSymbols.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="s1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>397, 36</value>
   </data>
@@ -1043,39 +1103,6 @@
   </data>
   <data name="s7ToolStripMenuItem.Text" xml:space="preserve">
     <value>ə i u n̩ l̩ ˈ ~ | ||</value>
-  </data>
-  <data name="btnPhoneticSymbols.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 18pt</value>
-  </data>
-  <data name="btnPhoneticSymbols.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="btnPhoneticSymbols.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="btnPhoneticSymbols.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 36</value>
-  </data>
-  <data name="btnPhoneticSymbols.Text" xml:space="preserve">
-    <value>dʒ</value>
-  </data>
-  <data name="btnPhoneticSymbols.ToolTipText" xml:space="preserve">
-    <value>Insert phonetic symbol in comment</value>
-  </data>
-  <data name="btnPhoneticSymbols.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 39</value>
@@ -1287,43 +1314,43 @@
   <data name="btnCleanAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
-        /wFIHoZwhjWThAAAAABJRU5ErkJggg==
+        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
+        fz46hmq03QWrAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnCleanAll.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -1353,53 +1380,218 @@
   <data name="lblNote.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="toolMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="toolMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 2, 0</value>
-  </data>
-  <data name="toolMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1160, 39</value>
-  </data>
-  <data name="toolMain.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="toolMain.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolMain.Name" xml:space="preserve">
-    <value>toolMain</value>
-  </data>
-  <data name="&gt;&gt;toolMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolMain.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>233, 17</value>
   </metadata>
   <data name="gBoxAudio.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="&gt;&gt;panContainer.Name" xml:space="preserve">
+    <value>panContainer</value>
+  </data>
+  <data name="&gt;&gt;panContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panContainer.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;panContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtVarPenalty.Name" xml:space="preserve">
+    <value>txtVarPenalty</value>
+  </data>
+  <data name="&gt;&gt;txtVarPenalty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtVarPenalty.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;txtVarPenalty.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtNFreqs.Name" xml:space="preserve">
+    <value>txtNFreqs</value>
+  </data>
+  <data name="&gt;&gt;txtNFreqs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNFreqs.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;txtNFreqs.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;txtChangePenalty.Name" xml:space="preserve">
+    <value>txtChangePenalty</value>
+  </data>
+  <data name="&gt;&gt;txtChangePenalty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtChangePenalty.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;txtChangePenalty.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblFloatingAnnotMenuItems.Name" xml:space="preserve">
+    <value>lblFloatingAnnotMenuItems</value>
+  </data>
+  <data name="&gt;&gt;lblFloatingAnnotMenuItems.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFloatingAnnotMenuItems.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;lblFloatingAnnotMenuItems.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtDPenalty.Name" xml:space="preserve">
+    <value>txtDPenalty</value>
+  </data>
+  <data name="&gt;&gt;txtDPenalty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtDPenalty.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;txtDPenalty.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfoCompare.Name" xml:space="preserve">
+    <value>lblSpecInfoCompare</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfoCompare.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfoCompare.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfoCompare.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfo.Name" xml:space="preserve">
+    <value>lblSpecInfo</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfo.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;lblSpecInfo.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;picControlBarCompare.Name" xml:space="preserve">
+    <value>picControlBarCompare</value>
+  </data>
+  <data name="&gt;&gt;picControlBarCompare.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picControlBarCompare.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;picControlBarCompare.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;GLPicSpec2.Name" xml:space="preserve">
+    <value>GLPicSpec2</value>
+  </data>
+  <data name="&gt;&gt;GLPicSpec2.Type" xml:space="preserve">
+    <value>OpenTK.GLControl, OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4</value>
+  </data>
+  <data name="&gt;&gt;GLPicSpec2.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;GLPicSpec2.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens2.Name" xml:space="preserve">
+    <value>GLPicIntens2</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens2.Type" xml:space="preserve">
+    <value>OpenTK.GLControl, OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens2.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens2.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;picStop.Name" xml:space="preserve">
+    <value>picStop</value>
+  </data>
+  <data name="&gt;&gt;picStop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picStop.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;picStop.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;glPicSpectre.Name" xml:space="preserve">
+    <value>glPicSpectre</value>
+  </data>
+  <data name="&gt;&gt;glPicSpectre.Type" xml:space="preserve">
+    <value>OpenTK.GLControl, OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4</value>
+  </data>
+  <data name="&gt;&gt;glPicSpectre.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;glPicSpectre.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;picControlBar.Name" xml:space="preserve">
+    <value>picControlBar</value>
+  </data>
+  <data name="&gt;&gt;picControlBar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;picControlBar.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;picControlBar.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens.Name" xml:space="preserve">
+    <value>GLPicIntens</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens.Type" xml:space="preserve">
+    <value>OpenTK.GLControl, OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens.Parent" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;GLPicIntens.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="gBoxAudio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 63</value>
+  </data>
+  <data name="gBoxAudio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1136, 419</value>
+  </data>
+  <data name="gBoxAudio.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="gBoxAudio.Text" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="&gt;&gt;gBoxAudio.Name" xml:space="preserve">
+    <value>gBoxAudio</value>
+  </data>
+  <data name="&gt;&gt;gBoxAudio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gBoxAudio.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gBoxAudio.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="panContainer.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
-  </data>
-  <data name="panVideo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="panVideo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panVideo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>472, 260</value>
-  </data>
-  <data name="panVideo.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
   </data>
   <data name="&gt;&gt;panVideo.Name" xml:space="preserve">
     <value>panVideo</value>
@@ -1435,6 +1627,30 @@
     <value>gBoxAudio</value>
   </data>
   <data name="&gt;&gt;panContainer.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panVideo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="panVideo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="panVideo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>472, 260</value>
+  </data>
+  <data name="panVideo.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;panVideo.Name" xml:space="preserve">
+    <value>panVideo</value>
+  </data>
+  <data name="&gt;&gt;panVideo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panVideo.Parent" xml:space="preserve">
+    <value>panContainer</value>
+  </data>
+  <data name="&gt;&gt;panVideo.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="txtVarPenalty.Location" type="System.Drawing.Point, System.Drawing">
@@ -1846,30 +2062,6 @@ Show/hide in s&amp;pectrogram
   </data>
   <data name="&gt;&gt;GLPicIntens.ZOrder" xml:space="preserve">
     <value>14</value>
-  </data>
-  <data name="gBoxAudio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 63</value>
-  </data>
-  <data name="gBoxAudio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1136, 419</value>
-  </data>
-  <data name="gBoxAudio.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="gBoxAudio.Text" xml:space="preserve">
-    <value>Audio</value>
-  </data>
-  <data name="&gt;&gt;gBoxAudio.Name" xml:space="preserve">
-    <value>gBoxAudio</value>
-  </data>
-  <data name="&gt;&gt;gBoxAudio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gBoxAudio.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;gBoxAudio.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="picRec.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

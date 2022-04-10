@@ -1739,6 +1739,18 @@ namespace AudioComparer
             }
         }
 
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (setup_mfa())
+            {
+                string acoustic_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_mfa-v2.0.0/english_mfa.zip";
+                string dictionary_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-english_mfa-v2.0.0/english_mfa.dict";
+                string acoustic_model = Path.Combine(Application.StartupPath, "MFA", "english_mfa.zip");
+                string dictionary = Path.Combine(Application.StartupPath, "MFA", "english_mfa.dict");
+                string outjson = DoAlignment(acoustic_model, dictionary, acoustic_url, dictionary_url);
+                updateMFAannotations(outjson);
+            }
+        }
 
         private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
