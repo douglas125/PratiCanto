@@ -1776,7 +1776,7 @@ namespace AudioComparer
             private static string time2string(double time)
             {
                 int hours = (int)(time / 3600.0); time -= (double)hours * 3600.0;
-                int mins = (int)(time / 60.0); time -= (double)mins*60.0;
+                int mins = (int)(time / 60.0); time -= (double)mins * 60.0;
                 int secs = (int)time; time -= secs;
                 int millisecs = (int)(1000.0 * time);
 
@@ -1889,6 +1889,54 @@ namespace AudioComparer
 
                 return lstAnn;
             }
+
+            class MFATiers
+            {
+                public string name { get; set; }
+                public double xmin { get; set; }
+                public double xmax { get; set; }
+                public List<System.Text.Json.JsonElement[]> entries { get; set; }
+            }
+            class MFAJson
+            {
+                public double xmin { get; set; }
+                public double xmax { get; set; }
+                public List<MFATiers> tiers { get; set; }
+            }
+
+            /// <summary>Reads JSON produced by Montreal Forced Aligner. Applies an offset to compensate for FFT size</summary>
+            /// <param name="file">Json file to read</param>
+            /// <returns></returns>
+            public static List<AudioAnnotation> ReadFromMFAJson(string file)
+            {
+                List<AudioAnnotation> lstAnn = new List<AudioAnnotation>();
+                double offset = 0.5 * FFTSamples / 44100.0;
+
+                string jsontext = System.IO.File.ReadAllText(file);
+                MFAJson mfajson = System.Text.Json.JsonSerializer.Deserialize<MFAJson>(jsontext);
+
+                foreach(MFATiers t in mfajson.tiers)
+                {
+                    foreach(System.Text.Json.JsonElement[] o in t.entries)
+                    {
+                        string s = o[0].ToString();
+                        double tmin, tmax;
+                        o[0].TryGetDouble(out tmin);
+                        o[1].TryGetDouble(out tmax);
+                        string txt = o[2].ToString();
+                        if (txt == "") txt = " ";
+                        if (t.name == "phones") txt = "[2]" + txt;
+                        if (tmax + offset > mfajson.xmax) tmax = mfajson.xmax - offset;
+                        if (tmin + offset > mfajson.xmax) tmin = mfajson.xmax - offset;
+
+                        AudioAnnotation ann = new AudioAnnotation(txt, tmin + offset, tmax + offset);
+                        ann.ShowInSpectrogram = false;
+                        lstAnn.Add(ann);
+                    }
+                }
+
+                return lstAnn;
+            }
         }
 
         /// <summary>Save audio to a separate file</summary>
@@ -1902,7 +1950,8 @@ namespace AudioComparer
         /// <param name="fileName">File to save to</param>
         /// <param name="t0">Initial time</param>
         /// <param name="tf">Final time</param>
-        public void SavePart(string fileName, double t0, double tf)
+        /// <param name="updateaudiofilename">Update audio file name?</param>
+        public void SavePart(string fileName, double t0, double tf, bool updateaudiofilename=true)
         {
             int id0 = (int)(t0 / time[1]);
             int idf = (int)(tf / time[1]);
@@ -1916,8 +1965,7 @@ namespace AudioComparer
 
                 //wfw.WriteSamples(samples, 0, samples.Length);
             }
-
-            this.AudioFile = fileName;
+            if (updateaudiofilename) this.AudioFile = fileName;
             try
             {
                 SaveAnnotations();

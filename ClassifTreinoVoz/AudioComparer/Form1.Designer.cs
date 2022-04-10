@@ -107,6 +107,8 @@
             this.medianToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autolearnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forcedAlignmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brazilianPortugueseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripSeparator();
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spotKeywordInSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,8 +172,6 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
-            this.brazilianPortugueseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -734,6 +734,17 @@
             this.forcedAlignmentToolStripMenuItem.Name = "forcedAlignmentToolStripMenuItem";
             resources.ApplyResources(this.forcedAlignmentToolStripMenuItem, "forcedAlignmentToolStripMenuItem");
             // 
+            // brazilianPortugueseToolStripMenuItem
+            // 
+            this.brazilianPortugueseToolStripMenuItem.Name = "brazilianPortugueseToolStripMenuItem";
+            resources.ApplyResources(this.brazilianPortugueseToolStripMenuItem, "brazilianPortugueseToolStripMenuItem");
+            this.brazilianPortugueseToolStripMenuItem.Click += new System.EventHandler(this.brazilianPortugueseToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+            // 
             // toolStripMenuItem20
             // 
             this.toolStripMenuItem20.Name = "toolStripMenuItem20";
@@ -1155,17 +1166,6 @@
             resources.ApplyResources(this.picPlay, "picPlay");
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
-            // 
-            // brazilianPortugueseToolStripMenuItem
-            // 
-            this.brazilianPortugueseToolStripMenuItem.Name = "brazilianPortugueseToolStripMenuItem";
-            resources.ApplyResources(this.brazilianPortugueseToolStripMenuItem, "brazilianPortugueseToolStripMenuItem");
-            this.brazilianPortugueseToolStripMenuItem.Click += new System.EventHandler(this.brazilianPortugueseToolStripMenuItem_Click);
-            // 
-            // englishToolStripMenuItem
-            // 
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
             // 
             // frmAudioComparer
             // 
