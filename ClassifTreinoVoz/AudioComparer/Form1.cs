@@ -1526,6 +1526,8 @@ namespace AudioComparer
         /// <summary>Sets up Montreal Forced Aligner env</summary>
         bool setup_mfa()
         {
+            string[] dlmodels_str = lblMFA.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string praticantoFolder = Application.StartupPath;
             string miniconda_path = "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe";
@@ -1533,7 +1535,7 @@ namespace AudioComparer
             if (!File.Exists(miniconda_script))
             {
                 bool install_miniconda3 = MessageBox.Show(
-                    "PratiCando needs to download miniconda3. Download and install now? Follow instructions to install",
+                    dlmodels_str[4],
                     "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
                     ) == DialogResult.Yes;
                 if (install_miniconda3)
@@ -1541,8 +1543,20 @@ namespace AudioComparer
                     // Needs to install miniconda
                     WebClient wc = new WebClient();
                     string miniconda3_installer = Path.Combine(praticantoFolder, "miniconda3-x64.exe");
-                    wc.DownloadFile(miniconda_path, Path.Combine(praticantoFolder, "miniconda3-x64.exe"));
-                    System.Diagnostics.Process.Start(miniconda3_installer);
+
+                    string miniconda3_dlpath = Path.Combine(praticantoFolder, "miniconda3-x64.exe");
+                    if (!File.Exists(miniconda3_dlpath))
+                        wc.DownloadFile(miniconda_path, miniconda3_dlpath);
+
+                    var process = new System.Diagnostics.Process
+                    {
+                        StartInfo = new System.Diagnostics.ProcessStartInfo
+                        {
+                            FileName = miniconda3_installer,
+                        }
+                    };
+                    process.Start();
+                    process.WaitForExit();
                 }
             }
             if (File.Exists(miniconda_script))
@@ -1551,7 +1565,7 @@ namespace AudioComparer
                 if (!File.Exists(Path.Combine(mfa_env_folder, "Scripts", "mfa.exe")))
                 {
                     bool install_mfa = MessageBox.Show(
-                            "PratiCando needs to download Montreal Forced Aligner. Download and install now? This can take a while",
+                            dlmodels_str[5],
                             "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
                             ) == DialogResult.Yes;
                     if (install_mfa)
@@ -1586,7 +1600,7 @@ namespace AudioComparer
                 }
                 if (!File.Exists(Path.Combine(mfa_env_folder, "Scripts", "mfa.exe")))
                 {
-                    MessageBox.Show("Montreal Forced Aligner env not found", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(dlmodels_str[6], "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
@@ -1600,10 +1614,12 @@ namespace AudioComparer
 
         string DoAlignment(string acoustic_model, string dictionary, string acoustic_url, string dictionary_url)
         {
+            string[] dlmodels_str = lblMFA.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
             if (!File.Exists(acoustic_model) || !File.Exists(dictionary))
             {
                 bool download_models = MessageBox.Show(
-                        "PratiCando needs to download required dictionaries and acoustic models. Download now? This can take a while",
+                        dlmodels_str[0],
                         "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
                         ) == DialogResult.Yes;
                 if (download_models)
@@ -1627,13 +1643,13 @@ namespace AudioComparer
                 parsedstr = System.Text.RegularExpressions.Regex.Replace(parsedstr, @"\s+", " ");
                 if (transcript != parsedstr)
                 {
-                    MessageBox.Show("Include accents but do not use punctuation or numbers in the text", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(dlmodels_str[1], "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtAnnotation.Text = parsedstr;
                 }
                 else
                 {
                     bool do_align = MessageBox.Show(
-                            "Align current audio with text? \n" + transcript,
+                            dlmodels_str[2] + " \n" + transcript,
                             "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
                             ) == DialogResult.Yes;
                     if (do_align)
@@ -1698,7 +1714,7 @@ namespace AudioComparer
                     }
                 }
             }
-            else MessageBox.Show("Acoustic model or dictionary not found", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show(dlmodels_str[3], "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return "";
         }
         void updateMFAannotations(string outjson)

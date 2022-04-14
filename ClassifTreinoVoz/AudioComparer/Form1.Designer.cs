@@ -154,6 +154,7 @@
             this.lblNote = new System.Windows.Forms.ToolStripLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.gBoxAudio = new System.Windows.Forms.GroupBox();
+            this.lblMFA = new System.Windows.Forms.Label();
             this.panContainer = new System.Windows.Forms.Panel();
             this.panVideo = new System.Windows.Forms.Panel();
             this.txtVarPenalty = new System.Windows.Forms.TextBox();
@@ -1030,6 +1031,7 @@
             // gBoxAudio
             // 
             resources.ApplyResources(this.gBoxAudio, "gBoxAudio");
+            this.gBoxAudio.Controls.Add(this.lblMFA);
             this.gBoxAudio.Controls.Add(this.panContainer);
             this.gBoxAudio.Controls.Add(this.txtVarPenalty);
             this.gBoxAudio.Controls.Add(this.txtNFreqs);
@@ -1047,6 +1049,11 @@
             this.gBoxAudio.Controls.Add(this.GLPicIntens);
             this.gBoxAudio.Name = "gBoxAudio";
             this.gBoxAudio.TabStop = false;
+            // 
+            // lblMFA
+            // 
+            resources.ApplyResources(this.lblMFA, "lblMFA");
+            this.lblMFA.Name = "lblMFA";
             // 
             // panContainer
             // 
@@ -1343,6 +1350,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem20;
         private System.Windows.Forms.ToolStripMenuItem brazilianPortugueseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.Label lblMFA;
     }
 }
 
