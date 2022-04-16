@@ -106,6 +106,10 @@
             this.spectrogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.medianToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.autolearnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forcedAlignmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.brazilianPortugueseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripSeparator();
             this.loadModelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spotKeywordInSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.spotkeywordsInAudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,6 +154,7 @@
             this.lblNote = new System.Windows.Forms.ToolStripLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.gBoxAudio = new System.Windows.Forms.GroupBox();
+            this.lblMFA = new System.Windows.Forms.Label();
             this.panContainer = new System.Windows.Forms.Panel();
             this.panVideo = new System.Windows.Forms.Panel();
             this.txtVarPenalty = new System.Windows.Forms.TextBox();
@@ -708,6 +713,8 @@
             // autolearnToolStripMenuItem
             // 
             this.autolearnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.forcedAlignmentToolStripMenuItem,
+            this.toolStripMenuItem20,
             this.loadModelToolStripMenuItem,
             this.spotKeywordInSelectionToolStripMenuItem,
             this.spotkeywordsInAudioToolStripMenuItem,
@@ -719,6 +726,31 @@
             this.phoneticSearchToolStripMenuItem});
             this.autolearnToolStripMenuItem.Name = "autolearnToolStripMenuItem";
             resources.ApplyResources(this.autolearnToolStripMenuItem, "autolearnToolStripMenuItem");
+            // 
+            // forcedAlignmentToolStripMenuItem
+            // 
+            this.forcedAlignmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.brazilianPortugueseToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.forcedAlignmentToolStripMenuItem.Name = "forcedAlignmentToolStripMenuItem";
+            resources.ApplyResources(this.forcedAlignmentToolStripMenuItem, "forcedAlignmentToolStripMenuItem");
+            // 
+            // brazilianPortugueseToolStripMenuItem
+            // 
+            this.brazilianPortugueseToolStripMenuItem.Name = "brazilianPortugueseToolStripMenuItem";
+            resources.ApplyResources(this.brazilianPortugueseToolStripMenuItem, "brazilianPortugueseToolStripMenuItem");
+            this.brazilianPortugueseToolStripMenuItem.Click += new System.EventHandler(this.brazilianPortugueseToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            resources.ApplyResources(this.englishToolStripMenuItem, "englishToolStripMenuItem");
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem20
+            // 
+            this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+            resources.ApplyResources(this.toolStripMenuItem20, "toolStripMenuItem20");
             // 
             // loadModelToolStripMenuItem
             // 
@@ -999,6 +1031,7 @@
             // gBoxAudio
             // 
             resources.ApplyResources(this.gBoxAudio, "gBoxAudio");
+            this.gBoxAudio.Controls.Add(this.lblMFA);
             this.gBoxAudio.Controls.Add(this.panContainer);
             this.gBoxAudio.Controls.Add(this.txtVarPenalty);
             this.gBoxAudio.Controls.Add(this.txtNFreqs);
@@ -1016,6 +1049,11 @@
             this.gBoxAudio.Controls.Add(this.GLPicIntens);
             this.gBoxAudio.Name = "gBoxAudio";
             this.gBoxAudio.TabStop = false;
+            // 
+            // lblMFA
+            // 
+            resources.ApplyResources(this.lblMFA, "lblMFA");
+            this.lblMFA.Name = "lblMFA";
             // 
             // panContainer
             // 
@@ -1308,6 +1346,11 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem19;
         private System.Windows.Forms.ToolStripMenuItem spotKeywordInSelectionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem spotkeywordsInAudioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forcedAlignmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem20;
+        private System.Windows.Forms.ToolStripMenuItem brazilianPortugueseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.Label lblMFA;
     }
 }
 

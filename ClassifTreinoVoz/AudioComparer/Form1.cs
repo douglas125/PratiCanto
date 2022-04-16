@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Net;
 using System.Windows.Forms;
 
 using NAudio.Wave;
@@ -1517,6 +1518,254 @@ namespace AudioComparer
                 }
             }
             return maxIdx;
+        }
+
+        /// <summary>Folder where Montreal Forced Aligner should be installed</summary>
+        string mfa_env_folder = Path.Combine(Application.StartupPath, "MFA", "MFA_env");
+
+        /// <summary>Sets up Montreal Forced Aligner env</summary>
+        bool setup_mfa()
+        {
+            string[] dlmodels_str = lblMFA.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string praticantoFolder = Application.StartupPath;
+            string miniconda_path = "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe";
+            string miniconda_script = Path.Combine(userFolder, "miniconda3", "Scripts", "activate.bat");
+            if (!File.Exists(miniconda_script))
+            {
+                bool install_miniconda3 = MessageBox.Show(
+                    dlmodels_str[4],
+                    "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                    ) == DialogResult.Yes;
+                if (install_miniconda3)
+                {
+                    // Needs to install miniconda
+                    WebClient wc = new WebClient();
+                    string miniconda3_installer = Path.Combine(praticantoFolder, "miniconda3-x64.exe");
+
+                    string miniconda3_dlpath = Path.Combine(praticantoFolder, "miniconda3-x64.exe");
+                    if (!File.Exists(miniconda3_dlpath))
+                        wc.DownloadFile(miniconda_path, miniconda3_dlpath);
+
+                    var process = new System.Diagnostics.Process
+                    {
+                        StartInfo = new System.Diagnostics.ProcessStartInfo
+                        {
+                            FileName = miniconda3_installer,
+                        }
+                    };
+                    process.Start();
+                    process.WaitForExit();
+                }
+            }
+            if (File.Exists(miniconda_script))
+            {
+                System.IO.Directory.CreateDirectory(Path.Combine(praticantoFolder, "MFA"));
+                if (!File.Exists(Path.Combine(mfa_env_folder, "Scripts", "mfa.exe")))
+                {
+                    bool install_mfa = MessageBox.Show(
+                            dlmodels_str[5],
+                            "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                            ) == DialogResult.Yes;
+                    if (install_mfa)
+                    {
+                        // Need to create MFA env
+                        string env_cmd = "conda create -y --prefix PATH -c conda-forge montreal-forced-aligner".Replace("PATH", mfa_env_folder);
+                        var process = new System.Diagnostics.Process
+                        {
+                            StartInfo = new System.Diagnostics.ProcessStartInfo
+                            {
+                                FileName = "cmd.exe",
+                                RedirectStandardInput = true,
+                                UseShellExecute = false,
+                                RedirectStandardOutput = false,
+                                WorkingDirectory = praticantoFolder
+                            }
+                        };
+                        process.Start();
+                        // Pass multiple commands to cmd.exe
+                        using (var sw = process.StandardInput)
+                        {
+                            if (sw.BaseStream.CanWrite)
+                            {
+                                // Vital to activate Anaconda
+                                sw.WriteLine(miniconda_script);
+                                // Activate your environment
+                                sw.WriteLine(env_cmd);
+                            }
+                        }
+                        process.WaitForExit();
+                    }
+                }
+                if (!File.Exists(Path.Combine(mfa_env_folder, "Scripts", "mfa.exe")))
+                {
+                    MessageBox.Show(dlmodels_str[6], "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Miniconda3 not found", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        string DoAlignment(string acoustic_model, string dictionary, string acoustic_url, string dictionary_url)
+        {
+            string[] dlmodels_str = lblMFA.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+
+            if (!File.Exists(acoustic_model) || !File.Exists(dictionary))
+            {
+                bool download_models = MessageBox.Show(
+                        dlmodels_str[0],
+                        "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                        ) == DialogResult.Yes;
+                if (download_models)
+                {
+                    WebClient wc = new WebClient();
+                    if (!File.Exists(acoustic_model)) wc.DownloadFile(acoustic_url, acoustic_model);
+                    if (!File.Exists(dictionary)) wc.DownloadFile(dictionary_url, dictionary);
+                }
+            }
+            if (File.Exists(acoustic_model) && File.Exists(dictionary))
+            {
+                Directory.CreateDirectory(Path.Combine(Application.StartupPath, "MFA"));
+                string mfa_files_path = Path.Combine(Application.StartupPath, "MFA", "tempfiles");
+                string mfa_outfiles_path = Path.Combine(Application.StartupPath, "MFA", "outfiles");
+                Directory.CreateDirectory(mfa_files_path);
+
+                string transcript = txtAnnotation.Text;
+                string parsedstr = "";
+                parsedstr = new string(transcript.Where(c => !char.IsPunctuation(c)).ToArray()).ToLower();
+                parsedstr = System.Text.RegularExpressions.Regex.Replace(parsedstr, @"[\d-]", string.Empty);
+                parsedstr = System.Text.RegularExpressions.Regex.Replace(parsedstr, @"\s+", " ");
+                if (transcript != parsedstr)
+                {
+                    MessageBox.Show(dlmodels_str[1], "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtAnnotation.Text = parsedstr;
+                }
+                else
+                {
+                    bool do_align = MessageBox.Show(
+                            dlmodels_str[2] + " \n" + transcript,
+                            "AI", MessageBoxButtons.YesNo, MessageBoxIcon.Question
+                            ) == DialogResult.Yes;
+                    if (do_align)
+                    {
+                        // save file in temporary folder
+                        curSample.SavePart(Path.Combine(mfa_files_path, "audio.wav"), 0, curSample.time[curSample.time.Length - 1], false);
+                        File.WriteAllText(Path.Combine(mfa_files_path, "audio.lab"), transcript, Encoding.UTF8);
+
+                        string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+                        string miniconda_script = Path.Combine(userFolder, "miniconda3", "Scripts", "activate.bat");
+                        string activate_mfa_env_string = "conda activate PATH".Replace("PATH", mfa_env_folder);
+
+                        // request output to corpus folder
+                        string mfa_align_cmd = "mfa align CORPUS_DIR DICT_PATH ACOUSTIC_PATH OUT_DIR --overwrite --clean --output_format json";
+                        string align_bat_file = Path.Combine(mfa_files_path, "align.bat");
+
+                        mfa_align_cmd = mfa_align_cmd.Replace("CORPUS_DIR", mfa_files_path);
+                        mfa_align_cmd = mfa_align_cmd.Replace("OUT_DIR", mfa_outfiles_path);
+                        mfa_align_cmd = mfa_align_cmd.Replace("DICT_PATH", dictionary);
+                        mfa_align_cmd = mfa_align_cmd.Replace("ACOUSTIC_PATH", acoustic_model);
+                        File.WriteAllLines(
+                            align_bat_file,
+                            new string[] {
+                                miniconda_script + " & " + activate_mfa_env_string + " & " + mfa_align_cmd + " & exit"
+                            });
+
+                        var process = new System.Diagnostics.Process
+                        {
+                            StartInfo = new System.Diagnostics.ProcessStartInfo
+                            {
+                                FileName = align_bat_file,
+                                // RedirectStandardInput = true,
+                                // UseShellExecute = false,
+                                // RedirectStandardOutput = true,
+                                // RedirectStandardError = true,
+                                // WorkingDirectory = Application.StartupPath,
+                                // CreateNoWindow = true
+                            }
+                        };
+                        process.Start();
+                        /*
+                        // Pass multiple commands to cmd.exe
+                        using (var sw = process.StandardInput)
+                        {
+                            if (sw.BaseStream.CanWrite)
+                            {
+                                // Vital to activate Anaconda
+                                sw.WriteLine(full_cmd);
+                                // Activate your environment
+                                // sw.WriteLine(activate_mfa_env_string);
+                                // Run MFA
+                                // sw.WriteLine(mfa_align_cmd);
+                            }
+                        }
+                        */
+                        // string output = process.StandardOutput.ReadToEnd();
+                        // string outputerror = process.StandardError.ReadToEnd();
+                        
+                        process.WaitForExit();
+                        string outjson = Path.Combine(mfa_outfiles_path, "audio.json");
+                        if (File.Exists(outjson)) return outjson;
+                    }
+                }
+            }
+            else MessageBox.Show(dlmodels_str[3], "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return "";
+        }
+        void updateMFAannotations(string outjson)
+        {
+            if (outjson != "")
+            {
+                List<SampleAudio.AudioAnnotation> audioannots = SampleAudio.AudioAnnotation.ReadFromMFAJson(outjson);
+                curSample.Annotations = audioannots;
+                picControlBar.Invalidate();
+
+                //remake annotation graphics
+                saGL.DrawAnnotations();
+                saGL.UpdateDrawing();
+
+                //attempt to save annotations
+                if (curSample.AudioFile != "")
+                {
+                    try
+                    {
+                        curSample.SaveAnnotations();
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+        }
+        private void brazilianPortugueseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (setup_mfa())
+            {
+                string acoustic_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-portuguese_mfa-v2.0.0/portuguese_mfa.zip";
+                string dictionary_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-portuguese_brazil_mfa-v2.0.0/portuguese_brazil_mfa.dict";
+                string acoustic_model = Path.Combine(Application.StartupPath, "MFA", "portuguese_mfa.zip");
+                string dictionary = Path.Combine(Application.StartupPath, "MFA", "portuguese_brazil_mfa.dict");
+                string outjson = DoAlignment(acoustic_model, dictionary, acoustic_url, dictionary_url);
+                updateMFAannotations(outjson);
+            }
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (setup_mfa())
+            {
+                string acoustic_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/acoustic-english_mfa-v2.0.0/english_mfa.zip";
+                string dictionary_url = "https://github.com/MontrealCorpusTools/mfa-models/releases/download/dictionary-english_mfa-v2.0.0/english_mfa.dict";
+                string acoustic_model = Path.Combine(Application.StartupPath, "MFA", "english_mfa.zip");
+                string dictionary = Path.Combine(Application.StartupPath, "MFA", "english_mfa.dict");
+                string outjson = DoAlignment(acoustic_model, dictionary, acoustic_url, dictionary_url);
+                updateMFAannotations(outjson);
+            }
         }
 
         private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
