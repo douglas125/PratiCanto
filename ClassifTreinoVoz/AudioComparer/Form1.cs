@@ -1625,8 +1625,30 @@ namespace AudioComparer
                 if (download_models)
                 {
                     WebClient wc = new WebClient();
-                    if (!File.Exists(acoustic_model)) wc.DownloadFile(acoustic_url, acoustic_model);
-                    if (!File.Exists(dictionary)) wc.DownloadFile(dictionary_url, dictionary);
+                    for (int k = 0; k <= 3; k++)
+                    {
+                        try
+                        {
+                            if (!File.Exists(acoustic_model)) wc.DownloadFile(acoustic_url, acoustic_model);
+                            if (!File.Exists(dictionary)) wc.DownloadFile(dictionary_url, dictionary);
+                            // Check sizes
+                            if (File.Exists(acoustic_model))
+                            {
+                                long acoustic_length = new System.IO.FileInfo(acoustic_model).Length;
+                                if (acoustic_length == 0) wc.DownloadFile(acoustic_url, acoustic_model);
+                            }
+                            // Check sizes
+                            if (File.Exists(dictionary))
+                            {
+                                long dict_length = new System.IO.FileInfo(dictionary).Length;
+                                if (dict_length == 0) wc.DownloadFile(dictionary, acoustic_model);
+                            }
+                        }
+                        catch
+                        {
+                            System.Threading.Thread.Sleep(300);
+                        }
+                    }
                 }
             }
             if (File.Exists(acoustic_model) && File.Exists(dictionary))
