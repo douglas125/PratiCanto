@@ -1523,6 +1523,35 @@ namespace AudioComparer
         /// <summary>Folder where Montreal Forced Aligner should be installed</summary>
         string mfa_env_folder = Path.Combine(Application.StartupPath, "MFA", "MFA_env");
 
+        string try_find_miniconda_folder()
+        {
+            // Read path
+            string sys_path = System.Environment.GetEnvironmentVariable("path");
+
+            string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string expected_miniconda3_location;
+
+            expected_miniconda3_location = Path.Combine(userFolder, "miniconda3", "Scripts", "activate.bat");
+            if (File.Exists(expected_miniconda3_location)) return expected_miniconda3_location;
+
+            expected_miniconda3_location = Path.Combine("C:\\", "miniconda3", "Scripts", "activate.bat");
+            if (File.Exists(expected_miniconda3_location)) return expected_miniconda3_location;
+
+            /*
+            string[] candidates = Directory.GetFiles(Path.Combine(userFolder, "miniconda3"), "activate.bat", SearchOption.AllDirectories);
+            if (candidates.Length > 0)
+            {
+                foreach (string c in candidates)
+                {
+                    if (c.Contains("Script") & !c.Contains("site-pack"))
+                        return c;
+                }
+            }
+            */
+
+            return expected_miniconda3_location;
+        }
+
         /// <summary>Sets up Montreal Forced Aligner env</summary>
         bool setup_mfa()
         {
@@ -1531,7 +1560,7 @@ namespace AudioComparer
             string userFolder = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string praticantoFolder = Application.StartupPath;
             string miniconda_path = "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe";
-            string miniconda_script = Path.Combine(userFolder, "miniconda3", "Scripts", "activate.bat");
+            string miniconda_script = try_find_miniconda_folder();  // Path.Combine(userFolder, "miniconda3", "Scripts", "activate.bat");
             if (!File.Exists(miniconda_script))
             {
                 bool install_miniconda3 = MessageBox.Show(
@@ -1553,6 +1582,7 @@ namespace AudioComparer
                         StartInfo = new System.Diagnostics.ProcessStartInfo
                         {
                             FileName = miniconda3_installer,
+                            Arguments = "/InstallationType=JustMe /RegisterPython=0 /S /D=C:\\miniconda3",
                         }
                     };
                     process.Start();
@@ -1606,7 +1636,7 @@ namespace AudioComparer
             }
             else
             {
-                MessageBox.Show("Miniconda3 not found", "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Miniconda3 not found: " + miniconda_script, "AI", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
