@@ -1890,18 +1890,43 @@ namespace AudioComparer
                 return lstAnn;
             }
 
+            class MFAWords
+            {
+                public string type { get; set; }
+                public List<System.Text.Json.JsonElement[]> entries { get; set; }
+            }
+
+            class MFAPhones
+            {
+                public string type { get; set; }
+                public List<System.Text.Json.JsonElement[]> entries { get; set; }
+            }
+
             class MFATiers
             {
-                public string name { get; set; }
-                public double xmin { get; set; }
-                public double xmax { get; set; }
-                public List<System.Text.Json.JsonElement[]> entries { get; set; }
+                public MFAWords words { get; set; }
+                public MFAPhones phones { get; set; }
             }
             class MFAJson
             {
-                public double xmin { get; set; }
-                public double xmax { get; set; }
-                public List<MFATiers> tiers { get; set; }
+                public double start { get; set; }
+                public double end { get; set; }
+                public MFATiers tiers { get; set; }
+            }
+
+            private static AudioAnnotation getAnnotation(System.Text.Json.JsonElement[] o, string prefix, MFAJson mfajson)
+            {
+                double offset = 0.5 * FFTSamples / 44100.0;
+                string s = o[0].ToString();
+                double tmin, tmax;
+                o[0].TryGetDouble(out tmin);
+                o[1].TryGetDouble(out tmax);
+                string txt = o[2].ToString();
+                if (txt == "") txt = " ";
+                txt = prefix + txt;
+                if (tmax + offset > mfajson.end) tmax = mfajson.end - offset;
+                if (tmin + offset > mfajson.end) tmin = mfajson.end - offset;
+                return new AudioAnnotation(txt, tmin + offset, tmax + offset);
             }
 
             /// <summary>Reads JSON produced by Montreal Forced Aligner. Applies an offset to compensate for FFT size</summary>
@@ -1910,29 +1935,21 @@ namespace AudioComparer
             public static List<AudioAnnotation> ReadFromMFAJson(string file)
             {
                 List<AudioAnnotation> lstAnn = new List<AudioAnnotation>();
-                double offset = 0.5 * FFTSamples / 44100.0;
 
                 string jsontext = System.IO.File.ReadAllText(file);
                 MFAJson mfajson = System.Text.Json.JsonSerializer.Deserialize<MFAJson>(jsontext);
 
-                foreach(MFATiers t in mfajson.tiers)
+                foreach (System.Text.Json.JsonElement[] o in mfajson.tiers.words.entries)
                 {
-                    foreach(System.Text.Json.JsonElement[] o in t.entries)
-                    {
-                        string s = o[0].ToString();
-                        double tmin, tmax;
-                        o[0].TryGetDouble(out tmin);
-                        o[1].TryGetDouble(out tmax);
-                        string txt = o[2].ToString();
-                        if (txt == "") txt = " ";
-                        if (t.name == "phones") txt = "[2]" + txt;
-                        if (tmax + offset > mfajson.xmax) tmax = mfajson.xmax - offset;
-                        if (tmin + offset > mfajson.xmax) tmin = mfajson.xmax - offset;
-
-                        AudioAnnotation ann = new AudioAnnotation(txt, tmin + offset, tmax + offset);
-                        ann.ShowInSpectrogram = false;
-                        lstAnn.Add(ann);
-                    }
+                    AudioAnnotation ann = getAnnotation(o, "", mfajson);
+                    ann.ShowInSpectrogram = false;
+                    lstAnn.Add(ann);
+                }
+                foreach (System.Text.Json.JsonElement[] o in mfajson.tiers.phones.entries)
+                {
+                    AudioAnnotation ann = getAnnotation(o, "[2]", mfajson);
+                    ann.ShowInSpectrogram = false;
+                    lstAnn.Add(ann);
                 }
 
                 return lstAnn;
