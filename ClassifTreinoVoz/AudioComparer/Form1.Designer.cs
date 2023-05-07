@@ -56,6 +56,7 @@
             this.reduceSpectreHeightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripSeparator();
             this.highlightHarmonicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideFutureSpectrogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.fundamentalFrequencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.f0AmplificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -173,7 +174,6 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
-            this.hideFutureSpectrogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -376,6 +376,12 @@
             this.highlightHarmonicsToolStripMenuItem.Name = "highlightHarmonicsToolStripMenuItem";
             resources.ApplyResources(this.highlightHarmonicsToolStripMenuItem, "highlightHarmonicsToolStripMenuItem");
             this.highlightHarmonicsToolStripMenuItem.Click += new System.EventHandler(this.highlightHarmonicsToolStripMenuItem_Click);
+            // 
+            // hideFutureSpectrogramToolStripMenuItem
+            // 
+            this.hideFutureSpectrogramToolStripMenuItem.Name = "hideFutureSpectrogramToolStripMenuItem";
+            resources.ApplyResources(this.hideFutureSpectrogramToolStripMenuItem, "hideFutureSpectrogramToolStripMenuItem");
+            this.hideFutureSpectrogramToolStripMenuItem.Click += new System.EventHandler(this.hideFutureSpectrogramToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -962,8 +968,8 @@
             // cmbInputDevice
             // 
             this.cmbInputDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbInputDevice.Name = "cmbInputDevice";
             resources.ApplyResources(this.cmbInputDevice, "cmbInputDevice");
+            this.cmbInputDevice.Name = "cmbInputDevice";
             // 
             // btnRec
             // 
@@ -991,8 +997,8 @@
             // 
             // txtReplaySpeed
             // 
-            this.txtReplaySpeed.Name = "txtReplaySpeed";
             resources.ApplyResources(this.txtReplaySpeed, "txtReplaySpeed");
+            this.txtReplaySpeed.Name = "txtReplaySpeed";
             this.txtReplaySpeed.Leave += new System.EventHandler(this.txtReplaySpeed_Leave);
             // 
             // toolStripSeparator4
@@ -1176,12 +1182,6 @@
             resources.ApplyResources(this.picPlay, "picPlay");
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
-            // 
-            // hideFutureSpectrogramToolStripMenuItem
-            // 
-            this.hideFutureSpectrogramToolStripMenuItem.Name = "hideFutureSpectrogramToolStripMenuItem";
-            resources.ApplyResources(this.hideFutureSpectrogramToolStripMenuItem, "hideFutureSpectrogramToolStripMenuItem");
-            this.hideFutureSpectrogramToolStripMenuItem.Click += new System.EventHandler(this.hideFutureSpectrogramToolStripMenuItem_Click);
             // 
             // frmAudioComparer
             // 
