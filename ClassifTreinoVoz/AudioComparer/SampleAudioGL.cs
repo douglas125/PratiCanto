@@ -208,6 +208,11 @@ namespace AudioComparer
             VBOCurTimeSpec = new GLRender.GLVBOModel(BeginMode.Lines);
             VBOCurTimeSpec.SetElemData(new int[] { 0, 1 });
             VBOCurTimeSpec.ModelColor = new float[] { 1, 0, 0, 1 };
+
+            // Hide future data
+            VBOHideFutureData = new GLRender.GLVBOModel(BeginMode.Quads);
+            VBOHideFutureData.SetElemData(new int[] { 0, 1, 2, 3 });
+            VBOHideFutureData.ModelColor = new float[] { 1.0f, 1.0f, 1.0f, 1.0f };
         }
 
 
@@ -520,6 +525,8 @@ namespace AudioComparer
         GLRender.GLVBOModel VBOCurTimeIntens;
         /// <summary>Current playback time in spectre graph</summary>
         GLRender.GLVBOModel VBOCurTimeSpec;
+        /// <summary>Quad to hide future data</summary>
+        GLRender.GLVBOModel VBOHideFutureData;
 
         /// <summary>Updates drawings in OpenGL controls</summary>
         public void UpdateDrawing()
@@ -739,23 +746,34 @@ namespace AudioComparer
 
         /// <summary>Draw current playback time?</summary>
         public bool DrawCurrentPlaybackTime = false;
+        /// <summary>Hide future data?</summary>
+        public bool HideFutureData = false;
         /// <summary>Draw current playback time</summary>
         /// <param name="time">Time to draw</param>
         /// <param name="invalidateSpectre">Invalidate spectre to force redraw?</param>
         public void DrawCurPbTime(float time, bool invalidateSpectre)
         {
             if (sampleAudio == null) return;
-            VBOCurTimeIntens.SetVertexData(new float[] 
+            VBOCurTimeIntens.SetVertexData(new float[]
             {
                 time, GLIntensGraphRange[2],0.1f,
                 time, GLIntensGraphRange[3],0.1f,
             });
 
-            VBOCurTimeSpec.SetVertexData(new float[] 
+            VBOCurTimeSpec.SetVertexData(new float[]
             {
                 time, GLSpectreGraphRange[2],0.1f,
                 time, GLSpectreGraphRange[3],0.1f,
             });
+
+            VBOHideFutureData.SetVertexData(new float[]
+            {
+                time,GLSpectreGraphRange[2],0,
+                GLSpectreGraphRange[1],GLSpectreGraphRange[2],0,
+                GLSpectreGraphRange[1],GLSpectreGraphRange[3],0,
+                time,GLSpectreGraphRange[3],0,
+            });
+
             glIntens.Invalidate();
             if (invalidateSpectre) glSpectre.Invalidate();
         }
@@ -869,6 +887,8 @@ namespace AudioComparer
             if (realTimeLastSampleIdx == 0) VBOFreqScale.DrawModel();
 
             if (DrawCurrentPlaybackTime) VBOCurTimeSpec.DrawModel();
+            if (HideFutureData) VBOHideFutureData.DrawModel();
+            
 
             if (p0SelX != pfSelX) VBOSelectSpectre.DrawModel();
 

@@ -56,6 +56,7 @@
             this.reduceSpectreHeightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripSeparator();
             this.highlightHarmonicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hideFutureSpectrogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.fundamentalFrequencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.f0AmplificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -301,6 +302,7 @@
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.spectreToolStripMenuItem,
+            this.hideFutureSpectrogramToolStripMenuItem,
             this.toolStripMenuItem2,
             this.fundamentalFrequencyToolStripMenuItem,
             this.f0AmplificationToolStripMenuItem,
@@ -374,6 +376,12 @@
             this.highlightHarmonicsToolStripMenuItem.Name = "highlightHarmonicsToolStripMenuItem";
             resources.ApplyResources(this.highlightHarmonicsToolStripMenuItem, "highlightHarmonicsToolStripMenuItem");
             this.highlightHarmonicsToolStripMenuItem.Click += new System.EventHandler(this.highlightHarmonicsToolStripMenuItem_Click);
+            // 
+            // hideFutureSpectrogramToolStripMenuItem
+            // 
+            this.hideFutureSpectrogramToolStripMenuItem.Name = "hideFutureSpectrogramToolStripMenuItem";
+            resources.ApplyResources(this.hideFutureSpectrogramToolStripMenuItem, "hideFutureSpectrogramToolStripMenuItem");
+            this.hideFutureSpectrogramToolStripMenuItem.Click += new System.EventHandler(this.hideFutureSpectrogramToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -960,8 +968,8 @@
             // cmbInputDevice
             // 
             this.cmbInputDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbInputDevice.Name = "cmbInputDevice";
             resources.ApplyResources(this.cmbInputDevice, "cmbInputDevice");
+            this.cmbInputDevice.Name = "cmbInputDevice";
             // 
             // btnRec
             // 
@@ -1351,6 +1359,7 @@
         private System.Windows.Forms.ToolStripMenuItem brazilianPortugueseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.Label lblMFA;
+        private System.Windows.Forms.ToolStripMenuItem hideFutureSpectrogramToolStripMenuItem;
     }
 }
 
