@@ -1820,6 +1820,14 @@ namespace AudioComparer
             }
         }
 
+        private void hideFutureSpectrogramToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            hideFutureSpectrogramToolStripMenuItem.Checked = !hideFutureSpectrogramToolStripMenuItem.Checked;
+            if (saGL != null) saGL.HideFutureData = hideFutureSpectrogramToolStripMenuItem.Checked;
+            if (saGLCompare != null) saGLCompare.HideFutureData = hideFutureSpectrogramToolStripMenuItem.Checked;
+        }
+
+
         private void SpotKeywordInSelectionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // no graph

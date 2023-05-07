@@ -173,6 +173,7 @@
             this.GLPicIntens = new OpenTK.GLControl();
             this.picRec = new System.Windows.Forms.PictureBox();
             this.picPlay = new System.Windows.Forms.PictureBox();
+            this.hideFutureSpectrogramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.toolMain.SuspendLayout();
             this.gBoxAudio.SuspendLayout();
@@ -301,6 +302,7 @@
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.spectreToolStripMenuItem,
+            this.hideFutureSpectrogramToolStripMenuItem,
             this.toolStripMenuItem2,
             this.fundamentalFrequencyToolStripMenuItem,
             this.f0AmplificationToolStripMenuItem,
@@ -989,8 +991,8 @@
             // 
             // txtReplaySpeed
             // 
-            resources.ApplyResources(this.txtReplaySpeed, "txtReplaySpeed");
             this.txtReplaySpeed.Name = "txtReplaySpeed";
+            resources.ApplyResources(this.txtReplaySpeed, "txtReplaySpeed");
             this.txtReplaySpeed.Leave += new System.EventHandler(this.txtReplaySpeed_Leave);
             // 
             // toolStripSeparator4
@@ -1175,6 +1177,12 @@
             this.picPlay.Name = "picPlay";
             this.picPlay.TabStop = false;
             // 
+            // hideFutureSpectrogramToolStripMenuItem
+            // 
+            this.hideFutureSpectrogramToolStripMenuItem.Name = "hideFutureSpectrogramToolStripMenuItem";
+            resources.ApplyResources(this.hideFutureSpectrogramToolStripMenuItem, "hideFutureSpectrogramToolStripMenuItem");
+            this.hideFutureSpectrogramToolStripMenuItem.Click += new System.EventHandler(this.hideFutureSpectrogramToolStripMenuItem_Click);
+            // 
             // frmAudioComparer
             // 
             resources.ApplyResources(this, "$this");
@@ -1351,6 +1359,7 @@
         private System.Windows.Forms.ToolStripMenuItem brazilianPortugueseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.Label lblMFA;
+        private System.Windows.Forms.ToolStripMenuItem hideFutureSpectrogramToolStripMenuItem;
     }
 }
 
