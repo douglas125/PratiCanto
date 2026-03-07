@@ -1,7 +1,11 @@
 # PratiCanto
 Voice analysis and vocal training
 
-![PratiCanto](/image_assets/praticantoLarge.PNG)
+## Link to the new, online PratiCanto:
+
+[PratiCanto Web](https://praticanto.com "PratiCanto Web")
+
+
 
 ## What is PratiCanto?
 
