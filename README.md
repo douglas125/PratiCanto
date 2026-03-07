@@ -17,11 +17,11 @@ Note that PratiCanto does not perform clinical diagnosis; it is a tool designed 
 
 ## How can I download and use PratiCanto?
 
-Download the latest release from our Github. If PratiCanto helps your research, please [cite us](#citeus).
+Download the latest release from our Github. If PratiCanto helps your research, please [cite us](#citeus). We recommend using [PratiCanto Web](https://praticanto.com "PratiCanto Web") for the latest features.
 
 ## Is it free?
 
-Yes, it is free and open source.
+Yes, the desktop version is free and open source, but we archived it in favor of the new [PratiCanto Web](https://praticanto.com "PratiCanto Web").
 
 As of 2021, in view of the Covid19 pandemic, Prof. Dr. Domingos Sávio de Ferreira de Oliveira and myself (Douglas Coimbra de Andrade) have decided to open PratiCanto's source under a permissive license to enable speech professionals to work remotely with their clients and foster speech research in general.
 
